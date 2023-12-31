@@ -17,12 +17,9 @@ nav {
   position: sticky;
   top: 0;
   z-index: 99;
-}
-
-@supports (backdrop-filter: blur(1rem)) {
-  nav {
-    background: #ffffff7c;
-    backdrop-filter: blur(0.5rem);
+  @supports (backdrop-filter: blur(1rem)) {
+    background: #ffffff07;
+    backdrop-filter: blur(0.7rem);
   }
 }
 

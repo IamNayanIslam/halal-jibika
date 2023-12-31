@@ -20,14 +20,15 @@
   font-size: 55px;
   color: #1dbf72;
   position: relative;
-  animation: slideInLeft 0.3s ease-out forwards; /* Define animation duration and timing function */
+  animation: slideInLeft 0.5s ease-out forwards; /* Define animation duration and timing function */
   opacity: 0; /* Start with opacity 0 to make it fade in while sliding */
 }
 
 .hero-section .contents h2 {
   color: #4a4d4e;
   font-size: 32px;
-  animation: slideInLeft 0.7s ease-out forwards;
+  animation: slideInLeft 1s ease-out forwards;
+  /* animation: fadeIn 1.5s ease-in-out forwards; */
   opacity: 0;
 }
 
@@ -42,7 +43,7 @@
   background: #1dbf72;
   color: #fff;
   font-weight: 600;
-  animation: scaleAnimation 0.5s alternate;
+  animation: scaleAnimation 1s alternate;
   transition: 0.3s ease all;
 }
 
@@ -64,7 +65,13 @@
 .hero-section .img img {
   width: 60%;
   transition: ease;
-  animation: scaleAnimation 0.5s alternate;
+  animation: scaleAnimation 1.5s alternate;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideInLeft {
@@ -80,7 +87,7 @@
 
 @keyframes scaleAnimation {
   0% {
-    transform: scale(0.5);
+    transform: scale(0.1);
   }
   100% {
     transform: scale(1);

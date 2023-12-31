@@ -12,10 +12,15 @@ function Home() {
       <div className="home-wrap">
         <div className="hero-section">
           <div className="contents">
+            <h1>Welcome To</h1>
             <h1>Halal Jibika</h1>
             <h2>
-              “Keep working hard, keep patients and make yourself ready for
-              job”.
+              <span className="from-left-fast">“Keep working</span>
+              <span className="from-left-slow"> hard, keep </span>
+              <span className="from-left-fast">patients </span>{" "}
+              <span className="from-left-slow">and make </span>
+              <span className="from-left-fast">yourself </span>
+              <span className="from-left-slow"> ready for job”</span>.
             </h2>
             <button>
               <Link to="/jobs">Explore Now</Link>

@@ -15,6 +15,7 @@
   border: 1px solid #4a4d4e;
   border-radius: 10px;
   color: #242424;
+  animation: scaleAnimation 0.5s alternate;
 }
 
 .signup h1 {
@@ -145,6 +146,16 @@
 
 .register button:hover {
   background: #137a48;
+}
+
+@keyframes scaleAnimation {
+  0% {
+    transform: scale(0.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 @media screen and (max-width: 768px) {

@@ -1,7 +1,28 @@
 import { useEffect } from "react";
 import "./Contacts.css";
+import { useInView } from "react-intersection-observer";
 
 function Contacts() {
+  const [refDhaka, inViewDhaka] = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+
+  const [refSF, inViewSF] = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+
+  const [refLondon, inViewLondon] = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+
+  const [refTokyo, inViewTokyo] = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+
   useEffect(() => {
     document.title = "Contacts || Halal Jibika";
   }, []);
@@ -54,7 +75,10 @@ function Contacts() {
         <div className="offices">
           <h2>Our Offices</h2>
 
-          <div className="office from-left">
+          <div
+            ref={refDhaka}
+            className={`office ${inViewDhaka ? "from-left" : ""}`}
+          >
             <img src="/img/map.png" alt="" />
             <div>
               <h3>Dhaka Office</h3>
@@ -64,7 +88,7 @@ function Contacts() {
               </address>
             </div>
           </div>
-          <div className="office from-right">
+          <div ref={refSF} className={`office ${inViewSF && "from-right"}`}>
             <img src="/img/map.png" alt="" />
             <div>
               <h3>San Francisco Office</h3>
@@ -74,7 +98,10 @@ function Contacts() {
               </address>
             </div>
           </div>
-          <div className="office from-left">
+          <div
+            ref={refLondon}
+            className={`office ${inViewLondon && "from-left"}`}
+          >
             <img src="/img/map.png" alt="" />
             <div>
               <h3>London Office</h3>
@@ -83,7 +110,10 @@ function Contacts() {
               </address>
             </div>
           </div>
-          <div className="office from-right">
+          <div
+            ref={refTokyo}
+            className={`office ${inViewTokyo && "from-right"}`}
+          >
             <img src="/img/map.png" alt="" />
             <div>
               <h3>Tokyo Office</h3>
