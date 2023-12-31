@@ -42,6 +42,7 @@
   background: #1dbf72;
   color: #fff;
   font-weight: 600;
+  animation: scaleAnimation 0.5s alternate;
   transition: 0.3s ease all;
 }
 
@@ -89,12 +90,14 @@
 @media screen and (max-width: 840px) {
   .hero-section {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding: 0 5%;
   }
 
   .hero-section .contents {
+    order: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -125,16 +128,10 @@
     transition: 0.3s ease all;
   }
 
-  .hero-section .contents button:hover {
-    background: #137a48;
-  }
-
-  .hero-section .contents button a {
-    text-decoration: none;
-    color: #fff;
-  }
-
   .hero-section .img {
-    display: none;
+    order: 1;
+    display: flex;
+    align-items: start;
+    justify-content: center;
   }
 }

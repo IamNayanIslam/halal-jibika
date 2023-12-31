@@ -10,7 +10,7 @@ function Contacts() {
       <div className="contacts-wrap">
         <h1>Contact Wirth Us</h1>
         <div className="contact-channels">
-          <div className="contact-channel">
+          <div className="contact-channel from-left-fast">
             <div>
               <h3 className="channel-name">Customer Support</h3>
               <p>Phone: +8801713-489664</p>
@@ -20,7 +20,7 @@ function Contacts() {
               <img src="/img/call.png" alt="" />
             </div>
           </div>
-          <div className="contact-channel">
+          <div className="contact-channel from-right-fast">
             <div>
               <h3 className="channel-name">Enterprise Solution</h3>
               <p>Phone: +8801763-899172</p>
@@ -30,7 +30,7 @@ function Contacts() {
               <img src="/img/enterprise.png" alt="" />
             </div>
           </div>
-          <div className="contact-channel">
+          <div className="contact-channel from-left-slow">
             <div>
               <h3 className="channel-name">Press Inquiries</h3>
               <p>Phone: +8801616-065776</p>
@@ -40,7 +40,7 @@ function Contacts() {
               <img src="/img/press.png" alt="" />
             </div>
           </div>
-          <div className="contact-channel">
+          <div className="contact-channel from-right-slow">
             <div>
               <h3 className="channel-name">Advice/Complain</h3>
               <p>Phone: +8801316-066766</p>
@@ -54,7 +54,7 @@ function Contacts() {
         <div className="offices">
           <h2>Our Offices</h2>
 
-          <div className="office">
+          <div className="office from-left">
             <img src="/img/map.png" alt="" />
             <div>
               <h3>Dhaka Office</h3>
@@ -64,7 +64,7 @@ function Contacts() {
               </address>
             </div>
           </div>
-          <div className="office">
+          <div className="office from-right">
             <img src="/img/map.png" alt="" />
             <div>
               <h3>San Francisco Office</h3>
@@ -74,7 +74,7 @@ function Contacts() {
               </address>
             </div>
           </div>
-          <div className="office">
+          <div className="office from-left">
             <img src="/img/map.png" alt="" />
             <div>
               <h3>London Office</h3>
@@ -83,7 +83,7 @@ function Contacts() {
               </address>
             </div>
           </div>
-          <div className="office">
+          <div className="office from-right">
             <img src="/img/map.png" alt="" />
             <div>
               <h3>Tokyo Office</h3>

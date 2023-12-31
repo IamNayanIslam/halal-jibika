@@ -11,6 +11,11 @@
 
 .about h1 {
   font-size: 45px;
+  animation: slideInLeft 0.3s ease-out forwards;
+}
+
+.about h3 {
+  animation: slideInLeft 0.3s ease-out forwards;
 }
 
 .about h1 span {
@@ -23,6 +28,7 @@
   justify-content: left;
   gap: 10px;
   margin-top: 30px;
+  animation: slideInLeft 0.3s ease-out forwards;
 }
 
 .president img {
@@ -38,11 +44,13 @@
 .about .p {
   margin-top: 20px;
   margin-bottom: 20px;
+  animation: slideInLeft 0.5s ease-out forwards;
 }
 
 .about .note {
   font-weight: 600;
   color: #3c3c3d;
+  animation: slideInLeft 0.9s ease-out forwards;
 }
 
 .about-wrap .about-img {
@@ -53,6 +61,28 @@
 
 .about-wrap .about-img img {
   width: 100%;
+  transition: ease;
+  animation: scaleAnimation 0.5s alternate;
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%); /* Start off-screen to the left */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0); /* Slide in to the normal position */
+    opacity: 1;
+  }
+}
+
+@keyframes scaleAnimation {
+  0% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @media screen and (max-width: 768px) {
