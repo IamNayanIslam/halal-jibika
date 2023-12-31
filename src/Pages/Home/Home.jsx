@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import "./Home.css";
+import LatestJobs from "../../Components/Latestjobs/LatestJobs";
+import { useEffect } from "react";
 
 function Home() {
+  useEffect(() => {
+    document.title = "Home || Halal Jibika";
+  }, []);
   return (
     <>
       <div className="home-wrap">
@@ -22,6 +27,7 @@ function Home() {
         </div>
         <div className="latest-jobs"></div>
       </div>
+      <LatestJobs />
     </>
   );
 }

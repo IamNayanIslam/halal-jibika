@@ -1,6 +1,10 @@
+import { useEffect } from "react";
 import "./About.css";
 
 function About() {
+  useEffect(() => {
+    document.title = "About || Halal Jibika";
+  }, []);
   return (
     <>
       <div className="about-wrap">

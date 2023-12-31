@@ -1,6 +1,5 @@
 import "./Signup.css";
-import { useState } from "react";
-import { FaRegUser } from "react-icons/fa6";
+import { useState, useEffect } from "react";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";
@@ -11,6 +10,10 @@ function Signup() {
   const handleShowPassword = () => {
     setShowPassword((showPass) => !showPass);
   };
+
+  useEffect(() => {
+    document.title = "Sign up || Halal Jibika";
+  }, []);
   return (
     <>
       <div className="signup-wrap">

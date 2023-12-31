@@ -8,11 +8,22 @@
 }
 
 nav {
+  background: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 15px 5%;
   border-bottom: 2px solid #1dbf72;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+
+@supports (backdrop-filter: blur(1rem)) {
+  nav {
+    background: #ffffff7c;
+    backdrop-filter: blur(0.5rem);
+  }
 }
 
 nav .hj {
@@ -126,6 +137,16 @@ nav .buttons ul li.signup-btn a:hover {
 }
 
 @media screen and (max-width: 840px) {
+  nav {
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 5%;
+    border-bottom: 2px solid #1dbf72;
+    position: static;
+  }
+
   .open-close {
     display: block;
   }

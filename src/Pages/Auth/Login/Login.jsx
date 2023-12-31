@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaRegUser } from "react-icons/fa6";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
@@ -12,6 +12,10 @@ function Login() {
   const handleShowPassword = () => {
     setShowPassword((showPass) => !showPass);
   };
+
+  useEffect(() => {
+    document.title = "Log in || Halal Jibika";
+  }, []);
   return (
     <>
       <div className="login-wrap">

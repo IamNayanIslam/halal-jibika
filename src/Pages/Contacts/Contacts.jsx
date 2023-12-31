@@ -1,6 +1,10 @@
+import { useEffect } from "react";
 import "./Contacts.css";
 
 function Contacts() {
+  useEffect(() => {
+    document.title = "Contacts || Halal Jibika";
+  }, []);
   return (
     <>
       <div className="contacts-wrap">
@@ -9,7 +13,7 @@ function Contacts() {
           <div className="contact-channel">
             <div>
               <h3 className="channel-name">Customer Support</h3>
-              <p>Phone: +8801713-489764</p>
+              <p>Phone: +8801713-489664</p>
               <p>customersupport@hj.com</p>
             </div>
             <div>
@@ -19,7 +23,7 @@ function Contacts() {
           <div className="contact-channel">
             <div>
               <h3 className="channel-name">Enterprise Solution</h3>
-              <p>Phone: +8801763-898172</p>
+              <p>Phone: +8801763-899172</p>
               <p>enterprisesolution@hj.com</p>
             </div>
             <div>
@@ -29,11 +33,21 @@ function Contacts() {
           <div className="contact-channel">
             <div>
               <h3 className="channel-name">Press Inquiries</h3>
-              <p>Phone: +8801616-065766</p>
+              <p>Phone: +8801616-065776</p>
               <p>pressinquiries@hj.com</p>
             </div>
             <div>
               <img src="/img/press.png" alt="" />
+            </div>
+          </div>
+          <div className="contact-channel">
+            <div>
+              <h3 className="channel-name">Advice/Complain</h3>
+              <p>Phone: +8801316-066766</p>
+              <p>advice-complain@hj.com</p>
+            </div>
+            <div>
+              <img src="/img/angry-customer.png" alt="" />
             </div>
           </div>
         </div>

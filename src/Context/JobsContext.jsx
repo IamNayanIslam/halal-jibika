@@ -1,7 +1,4 @@
-import { Outlet } from "react-router-dom";
-import Header from "./Components/Header/Header";
-import Footer from "./Components/Footer/Footer";
-import { createContext, useState } from "react";
+import { createContext } from "react";
 
 const initialJobs = [
   {
@@ -53,20 +50,5 @@ const initialJobs = [
     description: "This is a junior developer recruitment from IBM",
   },
 ];
+
 export const jobsContext = createContext();
-
-function App() {
-  const [jobs, setJobs] = useState(initialJobs);
-
-  return (
-    <div>
-      <jobsContext.Provider value={jobs}>
-        <Header />
-        <Outlet />
-        <Footer />
-      </jobsContext.Provider>
-    </div>
-  );
-}
-
-export default App;

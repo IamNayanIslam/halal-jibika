@@ -3,7 +3,7 @@ import { Navlinks } from "../../Routes/Navlinks";
 import "./Header.css";
 import { FaBars } from "react-icons/fa";
 import { IoCloseSharp } from "react-icons/io5";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Header() {
   const [mobileNav, setMobileNav] = useState(false);
