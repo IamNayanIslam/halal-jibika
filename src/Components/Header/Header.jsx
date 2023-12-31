@@ -19,7 +19,9 @@ function Header() {
             <img src="/img/hj.jpg" alt="Halal_jibika" className="logo" />
           </Link>
           <h2>
-            Halal <span>Jibika</span>
+            <Link to="/">
+              Halal <span>Jibika</span>
+            </Link>
           </h2>
         </div>
         <ul className={`main-menu mobile-ul ${mobileNav && "slide-in"}`}>

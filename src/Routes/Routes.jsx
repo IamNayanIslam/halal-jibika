@@ -7,6 +7,7 @@ import About from "../Pages/About/About";
 import Favorite from "../Pages/Favorite/Favorite";
 import Signup from "../Pages/Auth/Signup/Signup";
 import Login from "../Pages/Auth/Login/Login";
+import Error from "../Pages/Error/Error";
 
 export const Routes = createBrowserRouter([
   {
@@ -42,5 +43,10 @@ export const Routes = createBrowserRouter([
         element: <Login />,
       },
     ],
+  },
+
+  {
+    path: "*",
+    element: <Error />,
   },
 ]);

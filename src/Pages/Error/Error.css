@@ -1,0 +1,85 @@
+.error {
+  margin: 0;
+  padding: 0px;
+  display: flex;
+}
+
+.error img {
+  margin: 0;
+  padding: 0;
+}
+
+.error h1 {
+  /* position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  font-size: 65px;
+  color: #242424;
+  padding: 20px;
+}
+
+.error button {
+  /* position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  border: transparent;
+  outline-color: transparent;
+  margin-left: 20px;
+}
+
+.error button {
+  border: transparent;
+  outline-color: transparent;
+  cursor: pointer;
+  width: 150px;
+  margin-top: 20px;
+  padding: 12px 0;
+  border-radius: 6px;
+  background: #1dbf72;
+  color: #fff;
+  font-weight: 600;
+  transition: 0.3s ease all;
+}
+
+.error button:hover {
+  background: #137a48;
+}
+
+.error button a {
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .error {
+    margin: 0;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .error img {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .error h1 {
+    font-size: 45px;
+    color: #242424;
+    padding: 20px;
+  }
+
+  .error button {
+    border: transparent;
+    outline-color: transparent;
+    margin-left: 20px;
+  }
+
+  .error button {
+    margin-top: -20px;
+  }
+}
