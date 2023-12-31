@@ -17,12 +17,17 @@ function About() {
               <p>Founder & President</p>
             </div>
           </div>
-          <p>
+          <p className="p">
             Halal Jibika is the #1 job site in Bangladesh with over 30M+ unique
             visitors every month. Halal Jibika strives to put job seekers first,
             giving them free access to search for jobs, post resumes, and
             research companies. Every day, we connect millions of people to new
             opportunities.
+          </p>
+          <p className="note">
+            Please note that Halal Jibika and its affiliates are directly or
+            indirectly owned by a publicly traded Bangladeshi parent company,
+            Recruit Holdings Co., Ltd.
           </p>
         </div>
         <div className="about-img">
