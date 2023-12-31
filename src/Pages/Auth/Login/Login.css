@@ -145,3 +145,9 @@
 .register button:hover {
   background: #137a48;
 }
+
+@media screen and (max-width: 768px) {
+  .login {
+    border: none;
+  }
+}
