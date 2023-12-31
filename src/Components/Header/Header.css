@@ -52,12 +52,12 @@ nav ul li a {
   transition: 0.3s ease all;
 }
 
-nav .main-menu li {
+nav li {
   position: relative;
   transition: 0.3s ease-in-out all;
 }
 
-nav .main-menu li::after {
+nav li::after {
   content: "";
   width: 0%;
   height: 2px;
@@ -68,7 +68,7 @@ nav .main-menu li::after {
   transition: 0.3s ease-in-out all;
 }
 
-nav .main-menu li:hover::after {
+nav li:hover::after {
   content: "";
   width: 100%;
   height: 2px;
@@ -78,11 +78,22 @@ nav .main-menu li:hover::after {
   left: 0;
 }
 
+nav li.signup-btn:hover::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  display: none;
+  background: transparent;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
+
 nav ul li a:hover {
   color: #1dbf72;
 }
 
-nav .main-menu li a.active {
+nav li a.active {
   color: #1dbf72;
   border-bottom: 2px solid #1dbf72;
   padding-bottom: 3px;
@@ -92,15 +103,16 @@ nav .buttons ul li {
   margin: 0 10px;
 }
 
-nav .buttons ul li.signup a {
+nav .buttons ul li.signup-btn a {
   background: #1dbf72;
   color: #fff;
   padding: 5px 12px;
   border-radius: 15px;
 }
 
-nav .buttons ul li.signup a:hover {
+nav .buttons ul li.signup-btn a:hover {
   background: #137a48;
+  border: none;
 }
 
 .open-close {
@@ -131,6 +143,7 @@ nav .buttons ul li.signup a:hover {
     background: #fff;
     padding: 15px;
     transition: 0.3s ease-in all;
+    z-index: 999;
   }
 
   nav .hj {

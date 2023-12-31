@@ -146,8 +146,17 @@
   background: #137a48;
 }
 
+.register button a {
+  text-decoration: none;
+  color: #fff;
+}
+
 @media screen and (max-width: 768px) {
   .login {
     border: none;
+  }
+
+  .login h1 {
+    text-align: center;
   }
 }

@@ -1,4 +1,4 @@
-.login-wrap {
+.signup-wrap {
   width: 100%;
   min-height: 90vh;
   padding: 30px 0;
@@ -7,7 +7,8 @@
   justify-content: center;
 }
 
-.login {
+.signup {
+  width: 60%;
   display: flex;
   flex-direction: column;
   padding: 30px 60px;
@@ -16,15 +17,15 @@
   color: #242424;
 }
 
-.login h1 {
+.signup h1 {
   margin-bottom: 20px;
 }
 
-.login h1 span {
+.signup h1 span {
   color: #1dbf72;
 }
 
-.login .input {
+.signup .input {
   width: 100%;
   border: 2px solid #4a4d4e;
   margin-bottom: 20px;
@@ -32,35 +33,35 @@
   padding: 5px;
 }
 
-.login .input input {
+.signup .input input {
   border: none;
   outline: none;
-  background: transparent;
+  width: 100%;
 }
 
-.login .username {
+.signup .username {
   display: flex;
   align-items: center;
   justify-content: start;
   gap: 10px;
 }
 
-.login .password {
+.signup .password {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
 }
 
-.login .password .showPass {
+.signup .password .showPass {
   cursor: pointer;
 }
 
-.login input {
+.signup input {
   flex: 1;
 }
 
-.login form button {
+.signup form button {
   width: 100%;
   padding: 8px 0;
   border: transparent;
@@ -73,11 +74,11 @@
   transition: 0.3s ease all;
 }
 
-.login form button:hover {
+.signup form button:hover {
   background: #137a48;
 }
 
-.login p.hr {
+.signup p.hr {
   width: 100%;
   height: 1px;
   background: #4a4d4e;
@@ -86,7 +87,7 @@
   margin-bottom: 20px;
 }
 
-.login p.hr .or {
+.signup p.hr .or {
   position: absolute;
   left: 50%;
   top: -15px;
@@ -98,7 +99,7 @@
   justify-content: center;
 }
 
-.login p.continue {
+.signup p.continue {
   text-align: center;
   font-size: 22px;
   color: #242424;

@@ -5,6 +5,7 @@ import { IoEyeOff } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";
 import { ImGithub } from "react-icons/im";
 import "./Login.css";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -53,7 +54,9 @@ function Login() {
             <p>
               <span>Don't have a Halal Jibika Account?</span>
             </p>
-            <button>Sign Up</button>
+            <button>
+              <Link to="/signup">Sign Up</Link>
+            </button>
           </div>
         </div>
       </div>

@@ -34,9 +34,9 @@ function Header() {
         <div className="buttons">
           <ul>
             <li className="signin">
-              <Link to="/login">Log in</Link>
+              <NavLink to="/login">Log in</NavLink>
             </li>
-            <li className="signup">
+            <li className="signup-btn">
               <Link to="/signup">Sign up</Link>
             </li>
           </ul>

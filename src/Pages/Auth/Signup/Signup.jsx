@@ -13,20 +13,27 @@ function Signup() {
   };
   return (
     <>
-      <div className="login-wrap">
-        <div className="login">
+      <div className="signup-wrap">
+        <div className="signup">
           <h1>
             Sign up to Halal <span>Jibika</span>
           </h1>
           <form action="">
-            <div className="input username">
-              <FaRegUser />
-              <input type="text" placeholder="Email or Username" />
+            <div className="username">
+              <div className="input">
+                <input type="text" placeholder="First Name" />
+              </div>
+              <div className="input">
+                <input type="text" placeholder="Last Name" />
+              </div>
+            </div>
+            <div className="input">
+              <input type="text" placeholder="Mobile Number" />
             </div>
             <div className="input password">
               <input
                 type={showPassword ? "text" : "password"}
-                placeholder="Password"
+                placeholder="Password (8 or more character)"
               />
               {showPassword ? (
                 <IoEyeOff className="showPass" onClick={handleShowPassword} />
