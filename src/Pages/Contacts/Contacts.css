@@ -1,0 +1,117 @@
+.contacts-wrap {
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.contacts-wrap h1 {
+  color: #1dbf72;
+}
+
+.contacts-wrap .contact-channels {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.contacts-wrap .contact-channels .contact-channel {
+  flex-basis: 48%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background: #bbbbba;
+  border-radius: 10px;
+  transition: 0.3s ease all;
+}
+
+.contacts-wrap .contact-channels .contact-channel:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.contacts-wrap .contact-channels .contact-channel img {
+  width: 120px;
+}
+
+.offices {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.offices h2 {
+  width: 100%;
+  text-align: left;
+}
+
+.offices .office {
+  width: 70%;
+  /* margin: 0 auto; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: #bbbbba;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 840px) {
+  .contacts-wrap {
+    width: 100%;
+    margin-top: 50px;
+    padding: 20px;
+  }
+
+  .contacts-wrap h1 {
+    color: #1dbf72;
+  }
+
+  .contacts-wrap .contact-channels {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .contacts-wrap .contact-channels .contact-channel {
+    flex-basis: 100%;
+  }
+
+  .contacts-wrap .contact-channels .contact-channel img {
+    width: 90px;
+  }
+
+  .offices {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .offices .office {
+    width: 100%;
+    /* margin: 0 auto; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: #bbbbba;
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  .offices .office img {
+    width: 40%;
+  }
+}
