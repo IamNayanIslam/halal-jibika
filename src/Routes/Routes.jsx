@@ -11,8 +11,11 @@ import Error from "../Pages/Error/Error";
 
 export const Routes = createBrowserRouter([
   {
-    path: "",
+    path: "/",
     element: <App />,
+    errorElement: <Error />,
+    id: "root",
+    loader: () => fetch("http://localhost:9000/jobs"),
     children: [
       {
         path: "/",
