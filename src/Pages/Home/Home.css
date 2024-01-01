@@ -9,6 +9,7 @@
   justify-content: space-between;
   position: relative;
   overflow: hidden;
+  z-index: -100;
 }
 
 .hero-section .contents {

@@ -1,12 +1,15 @@
 import { useState, useEffect, useContext } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { FaRegUser } from "react-icons/fa6";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
-import { FcGoogle } from "react-icons/fc";
-import { ImGithub } from "react-icons/im";
+
 import "./Login.css";
 import { Link } from "react-router-dom";
 import { FavoriteJobsContext } from "../../../App";
+import SocialLogin from "../SocialLogin/SocialLogin";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../../Firebase/Firebase.config";
 
 function Login() {
   const { isDark } = useContext(FavoriteJobsContext);
@@ -14,10 +17,39 @@ function Login() {
   const handleShowPassword = () => {
     setShowPassword((showPass) => !showPass);
   };
-
   useEffect(() => {
     document.title = "Log in || Halal Jibika";
   }, []);
+
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const navigate = useNavigate();
+  const location = useLocation();
+  let from = location?.state?.from?.pathname || "/";
+
+  const backhome = () => {
+    if (user) {
+      navigate("/");
+    }
+  };
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+  if (error) {
+    return (
+      <p style={{ backgroundColor: "red", width: "600px", color: "wheat" }}>
+        {error?.message}
+      </p>
+    );
+  }
+
+  const hadnleSingInData = async (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    await signInWithEmailAndPassword(email, password);
+  };
+
   return (
     <>
       <div className={`login-wrap ${isDark && "dark-login-wrap"}`}>
@@ -25,7 +57,7 @@ function Login() {
           <h1>
             Log in to Halal <span>Jibika</span>
           </h1>
-          <form action="">
+          <form action="" onSubmit={() => hadnleSingInData()}>
             <div className="input username">
               <FaRegUser />
               <input type="text" placeholder="Email or Username" />
@@ -41,21 +73,14 @@ function Login() {
                 <IoEye className="showPass" onClick={handleShowPassword} />
               )}
             </div>
-            <button>Log in</button>
+            <button onClick={() => backhome()}>Log in</button>
           </form>
 
           <p className="hr">
             <span className="or">or</span>
           </p>
           <p className="continue">Continue With</p>
-          <div className="external-auth-btns">
-            <button>
-              <FcGoogle />
-            </button>
-            <button>
-              <ImGithub />
-            </button>
-          </div>
+          <SocialLogin />
           <div className="register">
             <p>
               <span>Don't have a Halal Jibika Account?</span>

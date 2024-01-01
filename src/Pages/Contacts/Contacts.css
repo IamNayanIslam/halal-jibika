@@ -3,6 +3,7 @@
   margin: 0 auto;
   margin-top: 50px;
   transition: 0.3s ease all;
+  z-index: -100;
 }
 
 .contacts-wrap h1 {
@@ -28,6 +29,7 @@
   background: #bbbbba;
   border-radius: 10px;
   transition: 0.3s ease all;
+  z-index: -2;
 }
 
 .contacts-wrap .contact-channels .contact-channel:hover {

@@ -118,18 +118,35 @@
   justify-content: center;
 }
 
-/* .btn-div .all-jobs-btn {
-  border: 1px solid transparent;
-  outline-color: transparent;
-  padding: 10px 50px;
-  background: #1dbf72;
-  color: #fff;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s ease all;
-  width: 100%;
+@media screen and (max-width: 500px) {
+  .jobs {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .job-card {
+    width: 98%;
+    z-index: -200;
+  }
+
+  .job-card .cont button {
+    padding: 10px 132px;
+  }
 }
 
-.btn-div .all-jobs-btn:hover {
-  background: #0f623a;
-} */
+@media screen and (min-width: 500px) and (max-width: 840px) {
+  .jobs {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+
+  .job-card {
+    width: 48%;
+  }
+
+  .job-card .cont button {
+    padding: 10px 0px;
+    width: 92%;
+  }
+}

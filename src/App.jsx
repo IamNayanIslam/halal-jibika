@@ -44,7 +44,9 @@ function App() {
       <div className={`page-width ${isDark && "dark-theme"}`}>
         <FavoriteJobsContext.Provider value={values}>
           <Header />
-          <div className={`theme-toggle position ${isDark && "glow"}`}>
+          <div
+            className={`theme-toggle position ${isDark ? "glow" : "bg-white"}`}
+          >
             {isDark ? (
               <img
                 src="./img/day.png"

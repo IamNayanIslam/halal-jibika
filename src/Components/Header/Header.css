@@ -16,7 +16,7 @@ nav {
   border-bottom: 2px solid #1dbf72;
   position: sticky;
   top: -0px;
-  z-index: 99;
+  z-index: 999;
   @supports (backdrop-filter: blur(1rem)) {
     background: #ffffff07;
     backdrop-filter: blur(0.7rem);
@@ -117,8 +117,18 @@ nav li a.active {
   padding-bottom: 3px;
 }
 
+nav .buttons ul {
+  display: flex;
+  align-items: center;
+}
+
 nav .buttons ul li {
   margin: 0 10px;
+  cursor: pointer;
+}
+
+nav .buttons ul li:hover {
+  color: #1dbf72;
 }
 
 nav .buttons ul li.signup-btn a {
@@ -143,6 +153,19 @@ nav .buttons ul li.signup-btn a:hover {
   transform: scale(1.2);
 }
 
+nav .buttons ul li.user-dp img {
+  width: 48px;
+  border-radius: 50%;
+  border: 2px solid #1dbf72;
+  transition: 0.3s ease all;
+}
+
+nav .buttons ul li.user-dp:hover {
+  &::after {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 840px) {
   nav {
     background: #fff;
@@ -152,15 +175,35 @@ nav .buttons ul li.signup-btn a:hover {
     padding: 15px 5%;
     border-bottom: 2px solid #1dbf72;
     position: static;
+    @supports (backdrop-filter: blur(1rem)) {
+      background: #fff;
+      backdrop-filter: blur(1rem);
+    }
   }
 
+  /* nav {
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 5%;
+    border-bottom: 2px solid #1dbf72;
+    position: sticky;
+    top: -0px;
+    z-index: 99;
+    @supports (backdrop-filter: blur(1rem)) {
+      background: #ffffff07;
+      backdrop-filter: blur(0.7rem);
+    }
+  }
+ */
   .open-close {
     display: block;
   }
 
   nav .mobile-ul {
-    width: 100%;
-    height: 100%;
+    width: 50% !important;
+    min-height: 100% !important;
     display: flex;
     flex-direction: column;
     align-items: end;
@@ -168,10 +211,12 @@ nav .buttons ul li.signup-btn a:hover {
     gap: 20px;
     top: 87px;
     right: -999px;
-    background: #fff;
+    background: #3c3c3d;
+    color: #fff;
+    opacity: 1;
     padding: 15px;
     transition: 0.3s ease-in all;
-    z-index: 999;
+    z-index: 999 !important;
   }
 
   nav .hj {
@@ -187,7 +232,8 @@ nav .buttons ul li.signup-btn a:hover {
   }
 
   nav ul li a {
-    color: #242424;
+    color: #fff;
+    z-index: 1000;
   }
 
   nav .slide-in {

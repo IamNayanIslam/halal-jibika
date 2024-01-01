@@ -1,16 +1,39 @@
 import "./Signup.css";
-import { useState, useEffect, useContext } from "react";
-import { IoEye } from "react-icons/io5";
-import { IoEyeOff } from "react-icons/io5";
+import { useEffect, useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { ImGithub } from "react-icons/im";
 import { FavoriteJobsContext } from "../../../App";
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
+import auth from "../../../Firebase/Firebase.config";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 function Signup() {
   const { isDark } = useContext(FavoriteJobsContext);
-  const [showPassword, setShowPassword] = useState(false);
-  const handleShowPassword = () => {
-    setShowPassword((showPass) => !showPass);
+  const [updateProfile, updating] = useUpdateProfile(auth);
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    const userName = e.target.userName.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const confirmPassword = e.target.confirmPassword.value;
+    if (password !== confirmPassword) {
+      return alert("Password does not match");
+    }
+
+    e.target.userName.value = "";
+    e.target.email.value = "";
+    e.target.password.value = "";
+    e.target.confirmPassword.value = "";
+
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName: userName });
+    return alert("Sign up succsesfully");
   };
 
   useEffect(() => {
@@ -23,28 +46,32 @@ function Signup() {
           <h1>
             Sign up to Halal <span>Jibika</span>
           </h1>
-          <form action="">
+          <form action="" onSubmit={handleSignup}>
             <div className="username">
               <div className="input">
-                <input type="text" placeholder="First Name" />
-              </div>
-              <div className="input">
-                <input type="text" placeholder="Last Name" />
+                <input
+                  type="text"
+                  placeholder="Enter Full Name"
+                  name="userName"
+                />
               </div>
             </div>
             <div className="input">
-              <input type="text" placeholder="Mobile Number" />
+              <input type="email" placeholder="Enter Email.." name="email" />
             </div>
             <div className="input password">
               <input
-                type={showPassword ? "text" : "password"}
+                type="password"
                 placeholder="Password (8 or more character)"
+                name="password"
               />
-              {showPassword ? (
-                <IoEyeOff className="showPass" onClick={handleShowPassword} />
-              ) : (
-                <IoEye className="showPass" onClick={handleShowPassword} />
-              )}
+            </div>
+            <div className="input password">
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                name="confirmPassword"
+              />
             </div>
             <button>Sign up</button>
           </form>
@@ -53,14 +80,7 @@ function Signup() {
             <span className="or">or</span>
           </p>
           <p className="continue">Continue With</p>
-          <div className="external-auth-btns">
-            <button>
-              <FcGoogle />
-            </button>
-            <button>
-              <ImGithub />
-            </button>
-          </div>
+          <SocialLogin />
           <div className="register">
             <p>
               <span>Already have a Halal Jibika Account?</span>
