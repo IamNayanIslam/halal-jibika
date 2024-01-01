@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import "./Footer.css";
+import { useContext } from "react";
+import { FavoriteJobsContext } from "../../App";
 
 export default function Footer() {
+  const { isDark } = useContext(FavoriteJobsContext);
   return (
-    <div className="footer-wrap">
+    <div className={`footer-wrap ${isDark && "dark-footer-wrap"}`}>
       <footer>
         <div className="footer-top">
           <div className="address">

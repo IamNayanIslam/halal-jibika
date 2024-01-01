@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { FaRegUser } from "react-icons/fa6";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
@@ -6,8 +6,10 @@ import { FcGoogle } from "react-icons/fc";
 import { ImGithub } from "react-icons/im";
 import "./Login.css";
 import { Link } from "react-router-dom";
+import { FavoriteJobsContext } from "../../../App";
 
 function Login() {
+  const { isDark } = useContext(FavoriteJobsContext);
   const [showPassword, setShowPassword] = useState(false);
   const handleShowPassword = () => {
     setShowPassword((showPass) => !showPass);
@@ -18,7 +20,7 @@ function Login() {
   }, []);
   return (
     <>
-      <div className="login-wrap">
+      <div className={`login-wrap ${isDark && "dark-login-wrap"}`}>
         <div className="login">
           <h1>
             Log in to Halal <span>Jibika</span>

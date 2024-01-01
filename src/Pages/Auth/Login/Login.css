@@ -17,6 +17,10 @@
   animation: scaleAnimation 0.5s alternate;
 }
 
+.dark-login-wrap .login {
+  color: #fff;
+}
+
 .login h1 {
   margin-bottom: 20px;
 }
@@ -37,6 +41,10 @@
   border: none;
   outline: none;
   background: transparent;
+}
+
+.dark-login-wrap .login .input input {
+  color: #fff;
 }
 
 .login .username {
@@ -87,22 +95,39 @@
   margin-bottom: 20px;
 }
 
+.dark-login-wrap .login p.hr {
+  background: #fff;
+}
+
 .login p.hr .or {
   position: absolute;
   left: 50%;
   top: -15px;
   transform: translateX(-50%);
-  padding: 5px;
+  padding: 4px 8px;
   background: #fff;
+  border: 1px solid #242424;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.dark-login-wrap .login p.hr .or {
+  border: 1px solid #fff;
+  background: #000;
+  border-radius: 50%;
+  padding: 4px 8px;
 }
 
 .login p.continue {
   text-align: center;
   font-size: 22px;
   color: #242424;
+}
+
+.dark-login-wrap .login p.continue {
+  color: #fff;
 }
 
 .external-auth-btns {

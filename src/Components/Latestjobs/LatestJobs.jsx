@@ -1,31 +1,22 @@
-import { useRouteLoaderData } from "react-router-dom";
+import { Link, useRouteLoaderData } from "react-router-dom";
 import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
 import "./LatestJobs.css";
-import { useState } from "react";
+import { useContext, useEffect } from "react";
+import { FavoriteJobsContext } from "../../App";
 
 function LatestJobs() {
-  const [favoriteJobs, setFavoriteJobs] = useState([]);
+  const { favoriteJobs, toggleHeart, isDark, isJobFavorite } =
+    useContext(FavoriteJobsContext);
   const jobs = useRouteLoaderData("root") || [];
 
-  const toggleHeart = (id) => {
-    // Check if the job is already in the favorites
-    const isAlreadyFavorite = favoriteJobs.includes(id);
-
-    if (isAlreadyFavorite) {
-      setFavoriteJobs((prevFavorites) =>
-        prevFavorites.filter((jobId) => jobId !== id)
-      );
-    } else {
-      setFavoriteJobs((prevFavorites) => [...prevFavorites, id]);
-    }
-  };
-
-  const isJobFavorite = (id) => favoriteJobs.includes(id);
+  useEffect(() => {
+    console.log(favoriteJobs);
+  }, [favoriteJobs]);
 
   return (
     <>
-      <div className="latest-jobs-wrap">
+      <div className={`latest-jobs-wrap ${isDark && "dark-theme"}`}>
         <h2>
           <span>Explore latest jobs</span>
         </h2>
@@ -37,23 +28,28 @@ function LatestJobs() {
               </div>
               {isJobFavorite(job.id) ? (
                 <FaHeart
-                  onClick={() => toggleHeart(job.id)}
+                  onClick={() => toggleHeart(job)}
                   className="fav-icon filled"
                 />
               ) : (
                 <CiHeart
-                  onClick={() => toggleHeart(job.id)}
+                  onClick={() => toggleHeart(job)}
                   className="fav-icon"
                 />
               )}
               <div className="cont">
                 <h3> {job.title}</h3>
                 <p>Hiring Company: {job.companyName}</p>
-                <p>Role: {job.position}</p>
+                <p className="role">Role: {job.position}</p>
                 <button>Apply</button>
               </div>
             </div>
           ))}
+          <div className="btn-div">
+            <Link to="/jobs">
+              <button className="all-jobs-btn">Explore All Jobs</button>
+            </Link>
+          </div>
         </div>
       </div>
     </>

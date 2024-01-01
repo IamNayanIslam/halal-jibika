@@ -7,6 +7,12 @@
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+  transition: 0.3s ease all;
+}
+
+.dark-about-wrap {
+  color: #fff;
+  transition: 0.3s ease all;
 }
 
 .about h1 {
@@ -51,6 +57,10 @@
   font-weight: 600;
   color: #3c3c3d;
   animation: slideInLeft 0.9s ease-out forwards;
+}
+
+.dark-about-wrap .about .note {
+  color: #cccaca;
 }
 
 .about-wrap .about-img {

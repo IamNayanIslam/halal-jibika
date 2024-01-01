@@ -1,0 +1,47 @@
+.dark-theme {
+  background: #1a1919;
+  color: #fff;
+  transition: 0.3s ease all;
+}
+
+.position {
+  position: absolute;
+  top: 22%;
+  right: 0;
+}
+
+.theme-toggle {
+  position: sticky;
+  /* top: 35%; */
+  /* right: 0; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 36px;
+  padding: 10px;
+  border: 2px solid #1dbf72;
+  border-left: 20px solid #1dbf72;
+  z-index: 1000;
+}
+
+.glow {
+  box-shadow: 0 0 10px #1dbf72, 0 0 20px #1dbf72, 0 0 30px #1dbf72;
+  transition: box-shadow 0.5s ease-in-out;
+}
+
+.glow:hover {
+  box-shadow: 0 0 20px #1dbf72, 0 0 40px #1dbf72, 0 0 60px #1dbf72;
+}
+
+.theme-toggle img {
+  width: 30px;
+  cursor: pointer;
+}
+.theme-toggle .day {
+  transition: 2s ease all;
+}
+
+.theme-toggle img.day:hover {
+  transform: rotate(360deg);
+}

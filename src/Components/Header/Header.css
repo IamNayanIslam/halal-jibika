@@ -35,6 +35,12 @@ nav .hj h2 a {
   color: #242424;
 }
 
+nav .dark-hj h2 a {
+  text-decoration: none;
+  color: #fff;
+  transition: 0.3s;
+}
+
 nav .hj h2 a span {
   color: #1dbf72;
 }
@@ -58,6 +64,10 @@ nav ul li a {
   text-transform: uppercase;
   font-weight: 600;
   transition: 0.3s ease all;
+}
+
+nav.dark-theme ul li a {
+  color: #fff;
 }
 
 nav li {

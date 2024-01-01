@@ -2,6 +2,7 @@
   width: 70%;
   margin: 0 auto;
   margin-top: 50px;
+  transition: 0.3s ease all;
 }
 
 .contacts-wrap h1 {

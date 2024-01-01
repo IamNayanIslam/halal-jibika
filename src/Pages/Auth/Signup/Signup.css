@@ -18,6 +18,10 @@
   animation: scaleAnimation 0.5s alternate;
 }
 
+.dark-signup-wrap .signup {
+  color: #fff;
+}
+
 .signup h1 {
   margin-bottom: 20px;
 }
@@ -38,6 +42,11 @@
   border: none;
   outline: none;
   width: 100%;
+  background: transparent;
+}
+
+.dark-signup-wrap .signup .input input {
+  color: #fff;
 }
 
 .signup .username {
@@ -88,22 +97,38 @@
   margin-bottom: 20px;
 }
 
+.dark-signup-wrap .signup p.hr {
+  background: #fff;
+}
+
 .signup p.hr .or {
   position: absolute;
   left: 50%;
   top: -15px;
   transform: translateX(-50%);
-  padding: 5px;
+  padding: 4px 8px;
+  border: 1px solid #242424;
+  border-radius: 50%;
   background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.dark-signup-wrap .signup p.hr .or {
+  color: #fff;
+  background: #000;
+  border: 1px solid #fff;
+}
+
 .signup p.continue {
   text-align: center;
   font-size: 22px;
   color: #242424;
+}
+
+.dark-signup-wrap .signup p.continue {
+  color: #fff;
 }
 
 .external-auth-btns {

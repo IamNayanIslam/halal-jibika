@@ -1,13 +1,16 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import "./About.css";
+import { FavoriteJobsContext } from "../../App";
 
 function About() {
+  const { isDark } = useContext(FavoriteJobsContext);
+
   useEffect(() => {
     document.title = "About || Halal Jibika";
   }, []);
   return (
     <>
-      <div className="about-wrap">
+      <div className={`about-wrap ${isDark && "dark-about-wrap"}`}>
         <div className="about">
           <h1>
             About Halal <span>Jibika</span>

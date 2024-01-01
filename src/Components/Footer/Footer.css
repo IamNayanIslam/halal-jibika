@@ -5,6 +5,10 @@
   color: #fff;
 }
 
+.dark-footer-wrap {
+  background: #3c3c3d;
+}
+
 footer {
   padding: 20px 5%;
   margin-top: 50px;
@@ -56,17 +60,24 @@ footer .footer-top ul li {
   cursor: pointer;
 }
 
-footer .footer-top ul li:hover {
+/* footer .footer-top ul li:hover {
   color: #d1cece;
-}
+} */
 
 footer .footer-top ul .footLink {
   text-decoration: none;
   color: #fff;
+  transition: 0.3s ease all;
 }
 
 footer .footer-top ul .footLink:hover {
   color: #d1cece;
+  transform: scale(1.1);
+}
+
+.dark-footer-wrap footer .footer-top ul .footLink:hover {
+  color: #1dbf72;
+  border-bottom: 2px solid #1dbf72;
 }
 
 footer .footer-top .cont {

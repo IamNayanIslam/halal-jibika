@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
 import "./Home.css";
 import LatestJobs from "../../Components/Latestjobs/LatestJobs";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { FavoriteJobsContext } from "../../App";
 
 function Home() {
+  const { isDark } = useContext(FavoriteJobsContext);
   useEffect(() => {
     document.title = "Home || Halal Jibika";
   }, []);
   return (
     <>
-      <div className="home-wrap">
+      <div className={`home-wrap ${isDark && "dark-theme"}`}>
         <div className="hero-section">
           <div className="contents">
             <h1>Welcome To</h1>

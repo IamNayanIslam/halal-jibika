@@ -1,11 +1,13 @@
 import "./Signup.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";
 import { ImGithub } from "react-icons/im";
+import { FavoriteJobsContext } from "../../../App";
 
 function Signup() {
+  const { isDark } = useContext(FavoriteJobsContext);
   const [showPassword, setShowPassword] = useState(false);
   const handleShowPassword = () => {
     setShowPassword((showPass) => !showPass);
@@ -16,7 +18,7 @@ function Signup() {
   }, []);
   return (
     <>
-      <div className="signup-wrap">
+      <div className={`signup-wrap ${isDark && "dark-signup-wrap"}`}>
         <div className="signup">
           <h1>
             Sign up to Halal <span>Jibika</span>

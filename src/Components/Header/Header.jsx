@@ -3,18 +3,20 @@ import { Navlinks } from "../../Routes/Navlinks";
 import "./Header.css";
 import { FaBars } from "react-icons/fa";
 import { IoCloseSharp } from "react-icons/io5";
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
+import { FavoriteJobsContext } from "../../App";
 
 function Header() {
   const [mobileNav, setMobileNav] = useState(false);
+  const { isDark } = useContext(FavoriteJobsContext);
 
   const toggleMobileNav = () => {
     setMobileNav((prevNav) => !prevNav);
   };
   return (
     <>
-      <nav>
-        <div className="hj">
+      <nav className={isDark && "dark-theme"}>
+        <div className={`hj ${isDark && "dark-hj"}`}>
           <Link to="/">
             <img src="/img/hj.jpg" alt="Halal_jibika" className="logo" />
           </Link>
