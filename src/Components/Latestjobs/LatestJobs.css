@@ -127,6 +127,7 @@
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s ease all;
+  width: 100%;
 }
 
 .btn-div .all-jobs-btn:hover {

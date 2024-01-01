@@ -1,6 +1,6 @@
 import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
-import { PiSmileySadBold } from "react-icons/pi";
+// import { PiSmileySadBold } from "react-icons/pi";
 import { useContext } from "react";
 import { FavoriteJobsContext } from "../../App";
 import { Link } from "react-router-dom";

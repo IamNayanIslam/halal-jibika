@@ -153,6 +153,11 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: 0.3s ease all;
+}
+
+.external-auth-btns button:hover {
+  transform: scale(1.1);
 }
 
 .register button {

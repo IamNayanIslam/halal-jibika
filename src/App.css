@@ -1,19 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.dark-body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #1a1919;
+}
+
+.page-width {
+  width: 1349px;
+  margin: 0 auto;
+}
+
 .dark-theme {
   background: #1a1919;
   color: #fff;
   transition: 0.3s ease all;
 }
 
-.position {
+/* .position {
   position: absolute;
   top: 22%;
   right: 0;
-}
+} */
 
 .theme-toggle {
   position: sticky;
-  /* top: 35%; */
-  /* right: 0; */
+  top: 35%;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,7 +37,7 @@
   height: 36px;
   padding: 10px;
   border: 2px solid #1dbf72;
-  border-left: 20px solid #1dbf72;
+  border-left: 10px solid #1dbf72;
   z-index: 1000;
 }
 
@@ -44,4 +60,12 @@
 
 .theme-toggle img.day:hover {
   transform: rotate(360deg);
+}
+
+.theme-toggle .night {
+  transition: 0.3s ease all;
+}
+
+.theme-toggle img.night:hover {
+  transform: scale(0.8);
 }

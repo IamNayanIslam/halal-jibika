@@ -32,6 +32,9 @@ function Header() {
               <NavLink to={link.path}>{link.name}</NavLink>
             </li>
           ))}
+          <li>
+            <NavLink>Post a Job</NavLink>
+          </li>
         </ul>
         <div className="buttons">
           <ul>
