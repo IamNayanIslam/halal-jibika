@@ -42,7 +42,7 @@ function Jobs() {
   }, []);
 
   const handleJobEdit = (id) => {
-    const jobToEdit = jobs.find((job) => job.id === id);
+    const jobToEdit = jobs?.find((job) => job.id === id);
     setJobEdit(jobToEdit);
     console.log(editJob);
     toggleModal();
@@ -68,8 +68,8 @@ function Jobs() {
           <div className="jobs">
             {jobs &&
               jobs
-                .sort((a, b) => b.id - a.id)
-                .map((job) => (
+                ?.sort((a, b) => b.id - a.id)
+                ?.map((job) => (
                   <div className="job-card" key={job.id}>
                     <div className="job-img">
                       <img src={job.logo} alt="Company Logo" />

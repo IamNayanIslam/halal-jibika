@@ -22,24 +22,28 @@ const Applied = () => {
     <>
       <div className="applied-wrap">
         <h2>
-          {appJobs.length > 0
+          {appJobs && appJobs.length > 0
             ? "Jobs you have applied for"
             : "You haven't applied yet!"}
         </h2>
 
         <div className="appliedJobs">
-          {appJobs.map((job) => (
-            <div className="appliedJob" key={job.id}>
-              <CgClose className="close-icon" onClick={(e) => apply(e, job)} />
-              <img src={job.logo} alt="" />
-              <div className="details">
-                <h2>{job.companyName}</h2>
-                <h3>{job.title}</h3>
-                <p>{job.description}</p>
-                <p>{job.position}</p>
+          {appJobs &&
+            appJobs.map((job) => (
+              <div className="appliedJob" key={job.id}>
+                <CgClose
+                  className="close-icon"
+                  onClick={(e) => apply(e, job)}
+                />
+                <img src={job.logo} alt="" />
+                <div className="details">
+                  <h2>{job.companyName}</h2>
+                  <h3>{job.title}</h3>
+                  <p>{job.description}</p>
+                  <p>{job.position}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
 
         {appJobs.length < 1 && (

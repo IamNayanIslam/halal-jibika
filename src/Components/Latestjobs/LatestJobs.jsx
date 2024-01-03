@@ -38,7 +38,7 @@ function LatestJobs() {
         </h2>
         <div className="latest-jobs">
           {jobs &&
-            jobs.slice(0, 5).map((job) => (
+            jobs?.slice(0, 5)?.map((job) => (
               <div className="latest-job-card" key={job.id}>
                 <div className="job-img">
                   <img src={job.logo} alt="Company Logo" />

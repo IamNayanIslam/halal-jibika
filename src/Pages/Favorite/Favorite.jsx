@@ -24,8 +24,8 @@ function Favorite() {
           </span>
         </h2>
         <div className="favorite-jobs">
-          {favoriteJobs.length > 0 ? (
-            favoriteJobs.map((job) => (
+          {favoriteJobs && favoriteJobs?.length > 0 ? (
+            favoriteJobs?.map((job) => (
               <div className="favorite-job-card" key={job.id}>
                 <div className="job-img">
                   <img src={job.logo} alt="Company Logo" />
