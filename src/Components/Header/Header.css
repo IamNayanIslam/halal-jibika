@@ -263,14 +263,20 @@ nav .buttons ul li.user-dp:hover {
     align-items: end;
     position: absolute;
     gap: 20px;
-    top: 87px;
-    right: -999px;
+    top: -999px;
+    right: 0;
+    opacity: 0.3;
     background: #000000d0;
     color: #fff;
     opacity: 1;
     padding: 15px;
-    transition: 1s ease-in all;
+    transition: 0.5s ease-in all;
     z-index: 1000 !important;
+  }
+
+  nav .slide-in {
+    top: 90px;
+    opacity: 1;
   }
 
   nav .hj {
@@ -296,10 +302,6 @@ nav .buttons ul li.user-dp:hover {
 
   .dark-theme nav ul li.signin a {
     color: #fff;
-  }
-
-  nav .slide-in {
-    right: 0;
   }
 
   nav .buttons {

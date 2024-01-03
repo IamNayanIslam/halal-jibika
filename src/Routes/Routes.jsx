@@ -16,8 +16,8 @@ export const Routes = createBrowserRouter([
     path: "/",
     element: <App />,
     errorElement: <Error />,
-    id: "root",
-    loader: () => fetch("http://localhost:9000/jobs"),
+    // id: "root",
+    // loader: () => fetch("http://localhost:9000/jobs"),
     children: [
       {
         path: "/",
