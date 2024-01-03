@@ -2,6 +2,10 @@ import { Link } from "react-router-dom";
 import "./Footer.css";
 import { useContext } from "react";
 import { FavoriteJobsContext } from "../../App";
+import { TiSocialTwitterCircular } from "react-icons/ti";
+import { TiSocialLinkedinCircular } from "react-icons/ti";
+import { TiSocialInstagramCircular } from "react-icons/ti";
+import { TiSocialFacebookCircular } from "react-icons/ti";
 
 export default function Footer() {
   const { isDark } = useContext(FavoriteJobsContext);
@@ -21,14 +25,10 @@ export default function Footer() {
               52.064822, Longitude: -1.345158
             </p>
           </div>
+
           <div className="links">
             <h4>Important Links</h4>
             <ul>
-              <li>
-                <Link to="/jobs" className="footLink">
-                  Jobs
-                </Link>
-              </li>
               <li>
                 <Link to="/about" className="footLink">
                   About
@@ -51,15 +51,36 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="cont">
-            <h3>Lorem, ipsum dolor.</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi
-              hic ratione id obcaecati. A sunt neque exercitationem iusto beatae
-              eius! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Animi hic ratione id obcaecati. A sunt neque exercitationem iusto
-              beatae eius!
-            </p>
+          <div className="social-links">
+            <h3>Follow Us</h3>
+            <ul id="pc-social-links">
+              <li>
+                <TiSocialFacebookCircular /> Facebook
+              </li>
+              <li>
+                <TiSocialTwitterCircular /> Twitter
+              </li>
+              <li>
+                <TiSocialInstagramCircular /> Instagram
+              </li>
+              <li>
+                <TiSocialLinkedinCircular /> LinkedIn
+              </li>
+            </ul>
+            <ul id="mobile-social-links">
+              <li>
+                <TiSocialFacebookCircular />
+              </li>
+              <li>
+                <TiSocialTwitterCircular />
+              </li>
+              <li>
+                <TiSocialInstagramCircular />
+              </li>
+              <li>
+                <TiSocialLinkedinCircular />
+              </li>
+            </ul>
           </div>
         </div>
       </footer>

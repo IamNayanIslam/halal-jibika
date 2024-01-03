@@ -168,7 +168,7 @@
 
   .job-card {
     width: 98%;
-    z-index: -200;
+    /* z-index: -200; */
   }
 
   .job-card .cont button {

@@ -24,6 +24,13 @@
   border-radius: 10px;
   transition: 0.3s ease-in-out all;
   cursor: pointer;
+  position: relative;
+}
+
+.appliedJob .close-icon {
+  position: absolute;
+  right: 8px;
+  top: 8px;
 }
 
 .appliedJob:hover {

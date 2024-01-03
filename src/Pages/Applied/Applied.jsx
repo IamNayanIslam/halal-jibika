@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { FavoriteJobsContext } from "../../App";
 import "./Applied.css";
+import { CgClose } from "react-icons/cg";
 
 const Applied = () => {
-  const { appliedJobs } = useContext(FavoriteJobsContext);
+  const { appliedJobs, apply } = useContext(FavoriteJobsContext);
   const [appJobs, setAppJobs] = useState(appliedJobs);
 
   useEffect(() => {
@@ -29,6 +30,7 @@ const Applied = () => {
         <div className="appliedJobs">
           {appJobs.map((job) => (
             <div className="appliedJob" key={job.id}>
+              <CgClose className="close-icon" onClick={(e) => apply(e, job)} />
               <img src={job.logo} alt="" />
               <div className="details">
                 <h2>{job.companyName}</h2>

@@ -24,9 +24,6 @@ function Login() {
 
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
-  const navigate = useNavigate();
-
-  // let from = location?.state?.from?.pathname || "/";
 
   if (loading) {
     return <p>Loading...</p>;
@@ -70,7 +67,7 @@ function Login() {
                   <IoEye className="showPass" onClick={handleShowPassword} />
                 )}
               </div>
-              <button onClick={() => backhome()}>Log in</button>
+              <button>Log in</button>
             </form>
 
             <p className="hr">

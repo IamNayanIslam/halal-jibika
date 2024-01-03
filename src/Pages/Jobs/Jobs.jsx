@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useRouteLoaderData } from "react-router-dom";
+
 import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
 import { IoCloseSharp } from "react-icons/io5";
@@ -10,8 +10,22 @@ import axios from "axios";
 import Editpost from "../../Components/Editpost/Editpost";
 
 function Jobs() {
-  const data = useRouteLoaderData("root");
-  const [jobs, setJobs] = useState(data);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { data } = await axios.get("http://localhost:9000/jobs");
+        setJobs(data);
+      } catch (error) {
+        console.log(`Error: ${error.message}, Error code: ${error.code}`);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const [jobs, setJobs] = useState(null);
+  // const data = useRouteLoaderData("root");
+
+  // const [jobs, setJobs] = useState(data);
   const {
     isJobFavorite,
     toggleHeart,
@@ -44,7 +58,7 @@ function Jobs() {
     }
   };
 
-  const reverseJobs = jobs.sort((a, b) => b.id - a.id);
+  // const reverseJobs = jobs.sort((a, b) => b.id - a.id);
 
   return (
     <>
@@ -52,48 +66,50 @@ function Jobs() {
         <h2>Chose your dream job from thousands of jobs!</h2>
         {
           <div className="jobs">
-            {reverseJobs &&
-              reverseJobs.map((job) => (
-                <div className="job-card" key={job.id}>
-                  <div className="job-img">
-                    <img src={job.logo} alt="Company Logo" />
-                  </div>
-                  <div className="icons-wrap">
-                    <div className="icons">
-                      <IoCloseSharp
-                        className="delete"
-                        onClick={() => deletePost(job.id)}
-                      />
-                      {isJobFavorite(job.id) ? (
-                        <FaHeart
-                          onClick={() => toggleHeart(job)}
-                          className="fav-icon filled"
+            {jobs &&
+              jobs
+                .sort((a, b) => b.id - a.id)
+                .map((job) => (
+                  <div className="job-card" key={job.id}>
+                    <div className="job-img">
+                      <img src={job.logo} alt="Company Logo" />
+                    </div>
+                    <div className="icons-wrap">
+                      <div className="icons">
+                        <IoCloseSharp
+                          className="delete"
+                          onClick={() => deletePost(job.id)}
                         />
-                      ) : (
-                        <CiHeart
-                          onClick={() => toggleHeart(job)}
-                          className="fav-icon"
+                        {isJobFavorite(job.id) ? (
+                          <FaHeart
+                            onClick={() => toggleHeart(job)}
+                            className="fav-icon filled"
+                          />
+                        ) : (
+                          <CiHeart
+                            onClick={() => toggleHeart(job)}
+                            className="fav-icon"
+                          />
+                        )}
+                        <FaRegEdit
+                          className="edit"
+                          onClick={() => handleJobEdit(job.id)}
                         />
-                      )}
-                      <FaRegEdit
-                        className="edit"
-                        onClick={() => handleJobEdit(job.id)}
-                      />
+                      </div>
+                    </div>
+                    <div className="cont">
+                      <h3> {job.title}</h3>
+                      <p>Hiring Company: {job.companyName}</p>
+                      <p className="role">Role: {job.position}</p>
+                      <button
+                        disabled={isJobApplied(job.id)}
+                        onClick={(e) => apply(e, job)}
+                      >
+                        Apply
+                      </button>
                     </div>
                   </div>
-                  <div className="cont">
-                    <h3> {job.title}</h3>
-                    <p>Hiring Company: {job.companyName}</p>
-                    <p className="role">Role: {job.position}</p>
-                    <button
-                      disabled={isJobApplied(job.id)}
-                      onClick={(e) => apply(e, job)}
-                    >
-                      Apply
-                    </button>
-                  </div>
-                </div>
-              ))}
+                ))}
           </div>
         }
       </div>

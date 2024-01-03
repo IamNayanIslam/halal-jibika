@@ -6,6 +6,7 @@ import {
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const SocialLogin = () => {
   const navigate = useNavigate();
@@ -27,8 +28,46 @@ const SocialLogin = () => {
       console.log(`Error: ${githubError.message}`);
     }
   }
-  if (googleUser || githubUser) navigate("/");
+  if (googleUser || githubUser) {
+    toast.success("Successfully signed!");
+    navigate("/");
+  }
 
+  /* const handleSignInWithGoogle = async () => {
+    try {
+      await signInWithGoogle();
+      toast.success("Successfully signed in with Google!");
+      navigate("/");
+    } catch (error) {
+      toast.error(`Error: ${error.message}`);
+    }
+  };
+
+  const handleSignInWithGithub = async () => {
+    try {
+      await signInWithGithub();
+      toast.success("Successfully signed in with GitHub!");
+      navigate("/");
+    } catch (error) {
+      toast.error(`Error: ${error.message}`);
+    }
+  };
+
+  if (googleLoading || githubLoading) {
+    // Optional: You can show a loading indicator here.
+    console.log("Loading...");
+  }
+
+  if (googleError || githubError) {
+    if (googleError) {
+      toast.error(`Error: ${googleError.message}`);
+    }
+
+    if (githubError) {
+      toast.error(`Error: ${githubError.message}`);
+    }
+  }
+ */
   return (
     <>
       <div className="btns">

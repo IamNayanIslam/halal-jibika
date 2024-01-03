@@ -11,7 +11,7 @@ import { signOut } from "firebase/auth";
 
 function Header() {
   const [mobileNav, setMobileNav] = useState(false);
-  const { isDark } = useContext(FavoriteJobsContext);
+  const { isDark, favoriteJobs, appliedJobs } = useContext(FavoriteJobsContext);
   const toggleMobileNav = () => {
     setMobileNav((prevNav) => !prevNav);
   };
@@ -22,6 +22,13 @@ function Header() {
 
   const [user] = useAuthState(auth);
   console.log(user);
+
+  function initials(fullName) {
+    const names = fullName.split(" ");
+    const initialsArray = names.map((name) => name.charAt(0).toUpperCase());
+    return initialsArray.join("");
+  }
+
   return (
     <>
       <nav className={isDark && "dark-theme"}>
@@ -41,10 +48,26 @@ function Header() {
               <NavLink to={link.path}>{link.name}</NavLink>
             </li>
           ))}
+
           {user && (
             <>
               <li>
-                <NavLink to="/applied">Applied</NavLink>
+                <NavLink to="/favorite">
+                  Favorite
+                  {favoriteJobs.length > 0 ? (
+                    <sup className="favNum">{favoriteJobs.length}</sup>
+                  ) : (
+                    ""
+                  )}
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/applied">
+                  Applied
+                  {appliedJobs.length > 0 ? (
+                    <sup>{appliedJobs.length}</sup>
+                  ) : null}
+                </NavLink>
               </li>
               <li>
                 <NavLink to="/jobpost">Post a Job</NavLink>
@@ -65,7 +88,14 @@ function Header() {
             )}
             {user ? (
               <li className="user-dp">
-                <img src={user.photoURL} alt="" />
+                {user.photoURL ? (
+                  <img src={user.photoURL} alt="" />
+                ) : (
+                  <>
+                    <span>{initials(user.displayName)}</span>
+                    <span className="tooltiptext">{user.displayName}</span>
+                  </>
+                )}
               </li>
             ) : (
               <li className="signup-btn">

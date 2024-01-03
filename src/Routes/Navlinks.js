@@ -15,8 +15,8 @@ export const Navlinks = [
     path: "/about",
     name: "About",
   },
-  {
+  /* {
     path: "/favorite",
     name: "Favorite",
-  },
+  }, */
 ];

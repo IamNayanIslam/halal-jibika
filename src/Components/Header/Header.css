@@ -111,6 +111,10 @@ nav ul li a:hover {
   color: #1dbf72;
 }
 
+nav ul li a sup {
+  color: #1dbf72;
+}
+
 nav li a.active {
   color: #1dbf72;
   border-bottom: 2px solid #1dbf72;
@@ -153,6 +157,56 @@ nav .buttons ul li.signup-btn a:hover {
   transform: scale(1.2);
 }
 
+nav .buttons ul li.user-dp span {
+  width: 48px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  padding: 10px;
+  background: #1dbf72;
+  color: #242424;
+  text-align: center;
+  transition: 0.3s ease all;
+}
+
+nav .buttons ul li.user-dp {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+nav .buttons ul li.user-dp .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #fff;
+  color: #1dbf72;
+  border: 1px solid #1dbf72;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  left: 50%;
+  bottom: -80px;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* nav .buttons ul li.user-dp .tooltiptext:hover {
+  visibility: none;
+  opacity: 0;
+} */
+
+nav .buttons ul li.user-dp:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+nav .buttons ul li.user-dp span:hover {
+  border: 1px solid #1dbf72;
+  background: #1dbf72;
+  color: #242424;
+}
+
 nav .buttons ul li.user-dp img {
   width: 48px;
   border-radius: 50%;
@@ -174,7 +228,7 @@ nav .buttons ul li.user-dp:hover {
     justify-content: space-between;
     padding: 15px 5%;
     border-bottom: 2px solid #1dbf72;
-    position: static;
+    position: sticky;
     @supports (backdrop-filter: blur(1rem)) {
       background: #fff;
       backdrop-filter: blur(1rem);
@@ -202,8 +256,8 @@ nav .buttons ul li.user-dp:hover {
   }
 
   nav .mobile-ul {
-    width: 50% !important;
-    min-height: 100% !important;
+    width: 100% !important;
+    min-height: 100vh !important;
     display: flex;
     flex-direction: column;
     align-items: end;
@@ -211,12 +265,12 @@ nav .buttons ul li.user-dp:hover {
     gap: 20px;
     top: 87px;
     right: -999px;
-    background: #3c3c3d;
+    background: #000000d0;
     color: #fff;
     opacity: 1;
     padding: 15px;
-    transition: 0.3s ease-in all;
-    z-index: 999 !important;
+    transition: 1s ease-in all;
+    z-index: 1000 !important;
   }
 
   nav .hj {
@@ -234,6 +288,14 @@ nav .buttons ul li.user-dp:hover {
   nav ul li a {
     color: #fff;
     /* z-index: 1000; */
+  }
+
+  nav ul li.signin a {
+    color: #242424;
+  }
+
+  .dark-theme nav ul li.signin a {
+    color: #fff;
   }
 
   nav .slide-in {

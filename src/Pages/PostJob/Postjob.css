@@ -57,3 +57,18 @@
   font-weight: 600;
   transition: 0.3s ease all;
 }
+
+@media screen and (max-width: 768px) {
+  .job-post-wrap {
+    width: 100%;
+  }
+
+  .job-post-wrap h2 {
+    margin-bottom: 30px;
+  }
+
+  .job-post-wrap form {
+    width: 96%;
+    margin: 0 auto;
+  }
+}
