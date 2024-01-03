@@ -1,0 +1,59 @@
+.job-post-wrap {
+  padding: 15px 5%;
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; */
+}
+
+.job-post-wrap h2 {
+  color: #1dbf72;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 2px double #1dbf72;
+}
+
+.job-post-wrap form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 10px;
+  width: 480px;
+  margin: 0 auto;
+  margin-top: 40px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
+}
+
+.job-post-wrap .dark-bg {
+  background: #3c3c3d;
+  transition: 0.5s ease all;
+}
+
+.job-post-wrap form input {
+  padding: 5px;
+  width: 80%;
+  border-radius: 5px;
+  outline: none;
+  /* outline: 1px solid #1dbf72; */
+  border: 1px solid #1dbf72;
+}
+
+.job-post-wrap form input:focus {
+  outline: 1px solid #1dbf72;
+}
+
+.job-post-wrap form button {
+  border: transparent;
+  outline-color: transparent;
+  cursor: pointer;
+  width: 150px;
+  padding: 12px 0;
+  border-radius: 6px;
+  background: #1dbf72;
+  color: #fff;
+  font-weight: 600;
+  transition: 0.3s ease all;
+}

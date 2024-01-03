@@ -3,6 +3,7 @@ import "./Home.css";
 import LatestJobs from "../../Components/Latestjobs/LatestJobs";
 import { useContext, useEffect } from "react";
 import { FavoriteJobsContext } from "../../App";
+import Jobcategories from "../../Components/JobCategories/Jobcategories";
 
 function Home() {
   const { isDark } = useContext(FavoriteJobsContext);
@@ -30,6 +31,7 @@ function Home() {
         </div>
         <div className="latest-jobs"></div>
       </div>
+      <Jobcategories />
       <LatestJobs />
     </>
   );

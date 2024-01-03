@@ -8,6 +8,8 @@ import Favorite from "../Pages/Favorite/Favorite";
 import Signup from "../Pages/Auth/Signup/Signup";
 import Login from "../Pages/Auth/Login/Login";
 import Error from "../Pages/Error/Error";
+import Postjob from "../Pages/PostJob/Postjob";
+import Applied from "../Pages/Applied/Applied";
 
 export const Routes = createBrowserRouter([
   {
@@ -36,6 +38,14 @@ export const Routes = createBrowserRouter([
       {
         path: "/favorite",
         element: <Favorite />,
+      },
+      {
+        path: "/applied",
+        element: <Applied />,
+      },
+      {
+        path: "/jobpost",
+        element: <Postjob />,
       },
       {
         path: "/signup",

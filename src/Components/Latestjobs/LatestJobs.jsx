@@ -6,13 +6,15 @@ import { useContext, useEffect } from "react";
 import { FavoriteJobsContext } from "../../App";
 
 function LatestJobs() {
-  const { favoriteJobs, toggleHeart, isDark, isJobFavorite } =
-    useContext(FavoriteJobsContext);
+  const {
+    favoriteJobs,
+    toggleHeart,
+    isDark,
+    isJobFavorite,
+    apply,
+    isJobApplied,
+  } = useContext(FavoriteJobsContext);
   const jobs = useRouteLoaderData("root") || [];
-
-  useEffect(() => {
-    console.log(favoriteJobs);
-  }, [favoriteJobs]);
 
   return (
     <>
@@ -41,7 +43,12 @@ function LatestJobs() {
                 <h3> {job.title}</h3>
                 <p>Hiring Company: {job.companyName}</p>
                 <p className="role">Role: {job.position}</p>
-                <button>Apply</button>
+                <button
+                  disabled={isJobApplied(job.id)}
+                  onClick={(e) => apply(e, job)}
+                >
+                  Apply
+                </button>
               </div>
             </div>
           ))}

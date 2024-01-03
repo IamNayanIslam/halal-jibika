@@ -10,6 +10,7 @@ import { FavoriteJobsContext } from "../../../App";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../../Firebase/Firebase.config";
+import Home from "../../Home/Home";
 
 function Login() {
   const { isDark } = useContext(FavoriteJobsContext);
@@ -24,14 +25,9 @@ function Login() {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const navigate = useNavigate();
-  const location = useLocation();
-  let from = location?.state?.from?.pathname || "/";
 
-  const backhome = () => {
-    if (user) {
-      navigate("/");
-    }
-  };
+  // let from = location?.state?.from?.pathname || "/";
+
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -52,45 +48,49 @@ function Login() {
 
   return (
     <>
-      <div className={`login-wrap ${isDark && "dark-login-wrap"}`}>
-        <div className="login">
-          <h1>
-            Log in to Halal <span>Jibika</span>
-          </h1>
-          <form action="" onSubmit={() => hadnleSingInData()}>
-            <div className="input username">
-              <FaRegUser />
-              <input type="text" placeholder="Email or Username" />
-            </div>
-            <div className="input password">
-              <input
-                type={showPassword ? "text" : "password"}
-                placeholder="Password"
-              />
-              {showPassword ? (
-                <IoEyeOff className="showPass" onClick={handleShowPassword} />
-              ) : (
-                <IoEye className="showPass" onClick={handleShowPassword} />
-              )}
-            </div>
-            <button onClick={() => backhome()}>Log in</button>
-          </form>
+      {!user ? (
+        <div className={`login-wrap ${isDark && "dark-login-wrap"}`}>
+          <div className="login">
+            <h1>
+              Log in to Halal <span>Jibika</span>
+            </h1>
+            <form action="" onSubmit={() => hadnleSingInData()}>
+              <div className="input username">
+                <FaRegUser />
+                <input type="text" placeholder="Email or Username" />
+              </div>
+              <div className="input password">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                />
+                {showPassword ? (
+                  <IoEyeOff className="showPass" onClick={handleShowPassword} />
+                ) : (
+                  <IoEye className="showPass" onClick={handleShowPassword} />
+                )}
+              </div>
+              <button onClick={() => backhome()}>Log in</button>
+            </form>
 
-          <p className="hr">
-            <span className="or">or</span>
-          </p>
-          <p className="continue">Continue With</p>
-          <SocialLogin />
-          <div className="register">
-            <p>
-              <span>Don't have a Halal Jibika Account?</span>
+            <p className="hr">
+              <span className="or">or</span>
             </p>
-            <button>
-              <Link to="/signup">Sign Up</Link>
-            </button>
+            <p className="continue">Continue With</p>
+            <SocialLogin />
+            <div className="register">
+              <p>
+                <span>Don't have a Halal Jibika Account?</span>
+              </p>
+              <button>
+                <Link to="/signup">Sign Up</Link>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <Home />
+      )}
     </>
   );
 }

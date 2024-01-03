@@ -1,0 +1,47 @@
+.applied-wrap {
+  padding: 15px 5%;
+}
+
+.applied-wrap > h2 {
+  color: #1dbf72;
+}
+
+.appliedJobs {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.appliedJob {
+  flex-basis: 48%;
+  background: #1dbf7183;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out all;
+  cursor: pointer;
+}
+
+.appliedJob:hover {
+  box-shadow: rgba(29, 191, 114, 0.65) 0px 5px 15px;
+}
+
+.appliedJob img {
+  width: 128px;
+  height: 128px;
+}
+
+.empty-applied {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.empty-applied img {
+  /* width: 350px; */
+}

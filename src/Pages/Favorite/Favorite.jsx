@@ -7,8 +7,14 @@ import { Link } from "react-router-dom";
 import "./Favorite.css";
 
 function Favorite() {
-  const { favoriteJobs, toggleHeart, isDark, isJobFavorite } =
-    useContext(FavoriteJobsContext);
+  const {
+    favoriteJobs,
+    toggleHeart,
+    isDark,
+    isJobFavorite,
+    apply,
+    isJobApplied,
+  } = useContext(FavoriteJobsContext);
   return (
     <>
       <div className={`favorite-jobs-wrap ${isDark && "dark-theme"}`}>
@@ -39,7 +45,12 @@ function Favorite() {
                   <h3> {job.title}</h3>
                   <p>Hiring Company: {job.companyName}</p>
                   <p className="role">Role: {job.position}</p>
-                  <button>Apply</button>
+                  <button
+                    disabled={isJobApplied(job.id)}
+                    onClick={(e) => apply(e, job)}
+                  >
+                    Apply
+                  </button>
                 </div>
               </div>
             ))

@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useRouteLoaderData } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import "./App.css";
@@ -7,13 +7,12 @@ import "./App.css";
 export const FavoriteJobsContext = createContext();
 
 function App() {
-  // const current_theme = localStorage.getItem("current_theme");
+  const current_theme = localStorage.getItem("current_theme");
+  const [isDark, setIsDark] = useState(current_theme === "true");
 
-  const [isDark, setIsDark] = useState(false);
-
-  /*  useEffect(() => {
-    localStorage.setItem("current_theme", isDark);
-  }, [isDark]); */
+  useEffect(() => {
+    localStorage.setItem("current_theme", isDark.toString()); // Convert boolean to string before saving
+  }, [isDark]);
 
   const toggleTheme = () => {
     setIsDark((dark) => !dark);
@@ -37,7 +36,48 @@ function App() {
 
   const isJobFavorite = (id) => favoriteJobs.some((favJob) => favJob.id === id);
 
-  const values = { favoriteJobs, toggleHeart, isDark, isJobFavorite };
+  const [appliedJobs, setAppliedJobs] = useState([]);
+
+  const apply = (e, job) => {
+    e.preventDefault();
+    const isAlreadyApplied = appliedJobs.some((appJob) => appJob.id === job.id);
+
+    if (isAlreadyApplied) {
+      setAppliedJobs((prevApplied) =>
+        prevApplied.filter((appJob) => appJob.id !== job.id)
+      );
+    } else {
+      setAppliedJobs((prevApplied) => [...prevApplied, job]);
+    }
+  };
+
+  const isJobApplied = (id) => appliedJobs.some((appJob) => appJob.id === id);
+
+  const [isModal, setIsModal] = useState(false);
+
+  const toggleModal = () => {
+    setIsModal((prevModal) => !prevModal);
+  };
+
+  const [jobEdit, setJobEdit] = useState(null);
+
+  const values = {
+    favoriteJobs,
+    toggleHeart,
+    isDark,
+    isJobFavorite,
+    apply,
+    appliedJobs,
+    isJobApplied,
+    isModal,
+    toggleModal,
+    jobEdit,
+    setJobEdit,
+  };
+
+  useEffect(() => {
+    console.log(appliedJobs);
+  }, [appliedJobs]);
 
   return (
     <div className={isDark && "dark-body"}>

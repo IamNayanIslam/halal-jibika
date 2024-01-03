@@ -112,6 +112,11 @@
   background: #137a48;
 }
 
+.favorite-job-card .cont button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .btn-div {
   display: flex;
   align-items: center;

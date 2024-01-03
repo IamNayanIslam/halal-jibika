@@ -90,7 +90,7 @@ footer .footer-top .cont p {
   margin-top: 10px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 840px) {
   footer .footer-top {
     height: auto;
     display: flex;

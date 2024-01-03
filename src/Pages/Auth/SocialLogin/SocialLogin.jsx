@@ -26,11 +26,8 @@ const SocialLogin = () => {
     if (githubError) {
       console.log(`Error: ${githubError.message}`);
     }
-
-    if (googleUser || githubUser) {
-      navigate("/");
-    }
   }
+  if (googleUser || githubUser) navigate("/");
 
   return (
     <>

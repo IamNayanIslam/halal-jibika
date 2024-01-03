@@ -42,9 +42,14 @@ function Header() {
             </li>
           ))}
           {user && (
-            <li>
-              <NavLink>Post a Job</NavLink>
-            </li>
+            <>
+              <li>
+                <NavLink to="/applied">Applied</NavLink>
+              </li>
+              <li>
+                <NavLink to="/jobpost">Post a Job</NavLink>
+              </li>
+            </>
           )}
         </ul>
         <div className="buttons">
