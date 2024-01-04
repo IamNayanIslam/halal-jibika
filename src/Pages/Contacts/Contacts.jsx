@@ -75,11 +75,9 @@ function Contacts() {
         <div className="offices">
           <h2>Our Offices</h2>
           <iframe
+            className="office-location"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d271.43391267266304!2d90.36943630324899!3d23.74863225085422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8c80ca24711%3A0x17a6c6027941f80d!2sEN%20Global%20Education%20Ltd!5e0!3m2!1sbn!2sbd!4v1704208751342!5m2!1sbn!2sbd"
-            width="800"
-            height="450"
-            style={{ border: "0" }} // Use camelCase for style
-            allowFullScreen={true} // Use camelCase for allowFullScreen
+            allowFullScreen={true}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>

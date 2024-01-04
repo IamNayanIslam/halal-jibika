@@ -5,6 +5,7 @@ import "./LatestJobs.css";
 import { useContext, useEffect, useState } from "react";
 import { FavoriteJobsContext } from "../../App";
 import axios from "axios";
+import Loader from "../Loader/Loader";
 
 function LatestJobs() {
   const {
@@ -67,6 +68,7 @@ function LatestJobs() {
                 </div>
               </div>
             ))}
+          {!jobs && <Loader />}
           <div className="btn-div">
             <Link to="/jobs">
               <button className="all-jobs-btn">Explore All Jobs</button>

@@ -8,17 +8,24 @@ import { FavoriteJobsContext } from "../../App";
 import "./Jobs.css";
 import axios from "axios";
 import Editpost from "../../Components/Editpost/Editpost";
+import { ScaleLoader } from "react-spinners";
+import Loader from "../../Components/Loader/Loader";
 
 function Jobs() {
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const { data } = await axios.get("http://localhost:9000/jobs");
         setJobs(data);
       } catch (error) {
-        console.log(`Error: ${error.message}, Error code: ${error.code}`);
+        console.error("Error fetching data:", error.message);
+      } finally {
+        setLoading(false);
       }
     };
+
     fetchData();
   }, []);
 
@@ -110,14 +117,17 @@ function Jobs() {
                     </div>
                   </div>
                 ))}
+            {!jobs && (
+              /* <MoonLoader color="#1DBF72" /> */
+              <div className="loader">
+                Trying to fetch data....
+                <ScaleLoader color="#1DBF72" />
+              </div>
+            )}
           </div>
         }
       </div>
-      {isModal && (
-        <div className="update-job">
-          <Editpost className="modal" />
-        </div>
-      )}
+      {isModal && <Loader />}
     </>
   );
 }
