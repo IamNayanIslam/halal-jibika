@@ -11,9 +11,16 @@ import Editpost from "../../Components/Editpost/Editpost";
 import { ScaleLoader } from "react-spinners";
 import Loader from "../../Components/Loader/Loader";
 import Swal from "sweetalert2";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import auth from "../../Firebase/Firebase.config";
 
 function Jobs() {
   const [loading, setLoading] = useState(true);
+
+  const { user } = useAuthState(auth);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -50,6 +57,11 @@ function Jobs() {
   }, []);
 
   const handleJobEdit = (id) => {
+    if (!user) {
+      toast.error("Please sign in first!");
+      navigate("/login");
+      return;
+    }
     const jobToEdit = jobs?.find((job) => job.id === id);
     setJobEdit(jobToEdit);
     console.log(editJob);
@@ -57,6 +69,11 @@ function Jobs() {
   };
 
   const deletePost = async (id) => {
+    if (!user) {
+      toast.error("Please sign in first!");
+      navigate("/login");
+      return;
+    }
     try {
       const result = await Swal.fire({
         title: "Are you sure?",

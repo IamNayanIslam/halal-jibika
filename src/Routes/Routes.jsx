@@ -10,6 +10,7 @@ import Login from "../Pages/Auth/Login/Login";
 import Error from "../Pages/Error/Error";
 import Postjob from "../Pages/PostJob/Postjob";
 import Applied from "../Pages/Applied/Applied";
+import SingleJob from "../Pages/SingleJob/SingleJob";
 
 export const Routes = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ export const Routes = createBrowserRouter([
       {
         path: "/jobs",
         element: <Jobs />,
+      },
+      {
+        path: "/job",
+        element: <SingleJob />,
       },
       {
         path: "/contacts",
