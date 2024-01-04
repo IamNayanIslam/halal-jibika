@@ -9,12 +9,15 @@ import {
 } from "react-firebase-hooks/auth";
 import auth from "../../../Firebase/Firebase.config";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const { isDark } = useContext(FavoriteJobsContext);
   const [updateProfile, updating] = useUpdateProfile(auth);
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
+  const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -22,8 +25,14 @@ function Signup() {
     const email = e.target.email.value;
     const password = e.target.password.value;
     const confirmPassword = e.target.confirmPassword.value;
+
     if (password !== confirmPassword) {
-      return alert("Password does not match");
+      Swal.fire({
+        icon: "error",
+        title: "Password mismatch",
+        text: "Please make sure your passwords match.",
+      });
+      return;
     }
 
     e.target.userName.value = "";
@@ -31,9 +40,23 @@ function Signup() {
     e.target.password.value = "";
     e.target.confirmPassword.value = "";
 
-    await createUserWithEmailAndPassword(email, password);
-    await updateProfile({ displayName: userName });
-    return alert("Sign up succsesfully");
+    try {
+      await createUserWithEmailAndPassword(email, password);
+
+      await updateProfile({ displayName: userName });
+      navigate("/");
+      Swal.fire({
+        icon: "success",
+        title: "Sign up successful",
+        text: "You have successfully signed up.",
+      });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Sign up failed",
+        text: error.message,
+      });
+    }
   };
 
   useEffect(() => {

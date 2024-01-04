@@ -5,7 +5,7 @@ import { FavoriteJobsContext } from "../../App";
 import axios from "axios";
 
 function Editpost() {
-  useEffect(() => {
+  /* useEffect(() => {
     const fetchData = async () => {
       try {
         const { data } = await axios.get("http://localhost:9000/jobs");
@@ -16,7 +16,7 @@ function Editpost() {
     };
     fetchData();
   }, []);
-  const [jobs, setJobs] = useState(null);
+  const [jobs, setJobs] = useState(null); */
 
   const { toggleModal, jobEdit, isDark } = useContext(FavoriteJobsContext);
   const [editData, setEditData] = useState({
@@ -37,6 +37,7 @@ function Editpost() {
 
     try {
       await axios.put(`http://localhost:9000/jobs/${editData?.id}`, editData);
+      // window.location.reload();
     } catch (error) {
       console.error("Error:", error);
     }

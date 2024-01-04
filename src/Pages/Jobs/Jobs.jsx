@@ -10,6 +10,7 @@ import axios from "axios";
 import Editpost from "../../Components/Editpost/Editpost";
 import { ScaleLoader } from "react-spinners";
 import Loader from "../../Components/Loader/Loader";
+import Swal from "sweetalert2";
 
 function Jobs() {
   const [loading, setLoading] = useState(true);
@@ -57,9 +58,26 @@ function Jobs() {
 
   const deletePost = async (id) => {
     try {
-      await axios.delete(`http://localhost:9000/jobs/${id}`);
+      const result = await Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      });
 
-      setJobs((prevJobs) => prevJobs.filter((job) => job.id !== id));
+      if (result.isConfirmed) {
+        await axios.delete(`http://localhost:9000/jobs/${id}`);
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your Job has been deleted.",
+          icon: "success",
+        });
+
+        setJobs((prevJobs) => prevJobs.filter((job) => job.id !== id));
+      }
     } catch (error) {
       console.error("Error deleting data:", error.message);
     }
@@ -117,17 +135,15 @@ function Jobs() {
                     </div>
                   </div>
                 ))}
-            {!jobs && (
-              /* <MoonLoader color="#1DBF72" /> */
-              <div className="loader">
-                Trying to fetch data....
-                <ScaleLoader color="#1DBF72" />
-              </div>
-            )}
+            {!jobs && <Loader />}
           </div>
         }
+        {isModal && (
+          <div className="update-job">
+            <Editpost className="modal" />
+          </div>
+        )}
       </div>
-      {isModal && <Loader />}
     </>
   );
 }

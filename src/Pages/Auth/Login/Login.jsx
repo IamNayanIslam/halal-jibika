@@ -1,16 +1,15 @@
 import { useState, useEffect, useContext } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { FaRegUser } from "react-icons/fa6";
-import { IoEye } from "react-icons/io5";
-import { IoEyeOff } from "react-icons/io5";
+import { IoEye, IoEyeOff } from "react-icons/io5";
 
 import "./Login.css";
-import { Link } from "react-router-dom";
 import { FavoriteJobsContext } from "../../../App";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../../Firebase/Firebase.config";
 import Home from "../../Home/Home";
+import Loader from "../../../Components/Loader/Loader";
 
 function Login() {
   const { isDark } = useContext(FavoriteJobsContext);
@@ -22,12 +21,23 @@ function Login() {
     document.title = "Log in || Halal Jibika";
   }, []);
 
+  const navigate = useNavigate();
+
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
+  const hadnleSingInData = async (e) => {
+    e.preventDefault();
+    const emailOrUsername = e.target.emailOrUsername.value;
+    const password = e.target.password.value;
+    await signInWithEmailAndPassword(emailOrUsername, password);
+    navigate("/");
+  };
+
   if (loading) {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
+
   if (error) {
     return (
       <p style={{ backgroundColor: "red", width: "600px", color: "wheat" }}>
@@ -35,13 +45,6 @@ function Login() {
       </p>
     );
   }
-
-  const hadnleSingInData = async (e) => {
-    e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    await signInWithEmailAndPassword(email, password);
-  };
 
   return (
     <>
@@ -51,14 +54,19 @@ function Login() {
             <h1>
               Log in to Halal <span>Jibika</span>
             </h1>
-            <form action="" onSubmit={() => hadnleSingInData()}>
+            <form onSubmit={hadnleSingInData}>
               <div className="input username">
                 <FaRegUser />
-                <input type="text" placeholder="Email or Username" />
+                <input
+                  type="text"
+                  name="emailOrUsername"
+                  placeholder="Email or Username"
+                />
               </div>
               <div className="input password">
                 <input
                   type={showPassword ? "text" : "password"}
+                  name="password"
                   placeholder="Password"
                 />
                 {showPassword ? (
@@ -67,7 +75,7 @@ function Login() {
                   <IoEye className="showPass" onClick={handleShowPassword} />
                 )}
               </div>
-              <button>Log in</button>
+              <button type="submit">Log in</button>
             </form>
 
             <p className="hr">
