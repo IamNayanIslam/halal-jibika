@@ -1,12 +1,12 @@
 import { createContext, useEffect, useState } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, ScrollRestoration, useNavigate } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import "./App.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { getDataFromLocalStorage } from "./Utility/utilities";
-import axios from "axios";
+// import axios from "axios";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "./Firebase/Firebase.config";
 
@@ -31,7 +31,7 @@ function App() {
   //favorite jobs array of object and related functions
 
   const [favoriteJobs, setFavoriteJobs] = useState(
-    getDataFromLocalStorage("favoriteJobs")
+    getDataFromLocalStorage("favoriteJobs") || []
   );
 
   const toggleHeart = (job) => {
@@ -64,7 +64,7 @@ function App() {
   //Applied Jobs Array of Object and related functions
 
   const [appliedJobs, setAppliedJobs] = useState(
-    getDataFromLocalStorage("appliedJobs")
+    getDataFromLocalStorage("appliedJobs") || []
   );
 
   const apply = (e, job) => {
@@ -92,6 +92,8 @@ function App() {
   useEffect(() => {
     localStorage.setItem("appliedJobs", JSON.stringify(appliedJobs));
   }, [appliedJobs]);
+
+  //Job updating Modal opening and closing function
 
   const [isModal, setIsModal] = useState(false);
 
@@ -122,6 +124,7 @@ function App() {
       <div className={`page-width ${isDark && "dark-theme"}`}>
         <FavoriteJobsContext.Provider value={values}>
           <Header />
+          <ScrollRestoration />
           <div
             className={`theme-toggle position ${isDark ? "glow" : "bg-white"}`}
           >

@@ -42,6 +42,7 @@ function Editpost() {
       console.error("Error:", error);
     }
     toggleModal();
+    window.location.reload();
   };
 
   return (

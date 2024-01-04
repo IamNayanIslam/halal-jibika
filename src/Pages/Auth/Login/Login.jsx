@@ -10,6 +10,7 @@ import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../../Firebase/Firebase.config";
 import Home from "../../Home/Home";
 import Loader from "../../../Components/Loader/Loader";
+import Swal from "sweetalert2";
 
 function Login() {
   const { isDark } = useContext(FavoriteJobsContext);
@@ -30,8 +31,24 @@ function Login() {
     e.preventDefault();
     const emailOrUsername = e.target.emailOrUsername.value;
     const password = e.target.password.value;
-    await signInWithEmailAndPassword(emailOrUsername, password);
-    navigate("/");
+
+    try {
+      await signInWithEmailAndPassword(auth, emailOrUsername, password);
+      navigate("/");
+      Swal.fire({
+        icon: "success",
+        title: "Signed In",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+    } catch (error) {
+      console.error("Error signing in:", error.message);
+      Swal.fire({
+        icon: "error",
+        title: "Sign In Failed",
+        text: error.message,
+      });
+    }
   };
 
   if (loading) {

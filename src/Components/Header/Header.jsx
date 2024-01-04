@@ -8,6 +8,7 @@ import { FavoriteJobsContext } from "../../App";
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 import auth from "../../Firebase/Firebase.config";
 import { signOut } from "firebase/auth";
+import { toast } from "react-toastify";
 
 function Header() {
   const [mobileNav, setMobileNav] = useState(false);
@@ -17,7 +18,14 @@ function Header() {
   };
 
   const logOut = () => {
-    signOut(auth);
+    signOut(auth)
+      .then(() => {
+        toast.warning("Signed out");
+      })
+      .catch((error) => {
+        console.error("Error signing out:", error.message);
+        toast.error("Error signing out");
+      });
   };
 
   const [user] = useAuthState(auth);
@@ -44,32 +52,32 @@ function Header() {
         </div>
         <ul className={`main-menu mobile-ul ${mobileNav && "slide-in"}`}>
           {Navlinks.map((link) => (
-            <li key={link.name}>
+            <li key={link.name} onClick={toggleMobileNav}>
               <NavLink to={link.path}>{link.name}</NavLink>
             </li>
           ))}
 
           {user && (
             <>
-              <li>
+              <li onClick={toggleMobileNav}>
                 <NavLink to="/favorite">
                   Favorite
-                  {favoriteJobs.length > 0 ? (
-                    <sup className="favNum">{favoriteJobs.length}</sup>
+                  {favoriteJobs?.length > 0 ? (
+                    <sup className="favNum">{favoriteJobs?.length}</sup>
                   ) : (
                     ""
                   )}
                 </NavLink>
               </li>
-              <li>
+              <li onClick={toggleMobileNav}>
                 <NavLink to="/applied">
                   Applied
-                  {appliedJobs.length > 0 ? (
-                    <sup>{appliedJobs.length}</sup>
+                  {appliedJobs?.length > 0 ? (
+                    <sup>{appliedJobs?.length}</sup>
                   ) : null}
                 </NavLink>
               </li>
-              <li>
+              <li onClick={toggleMobileNav}>
                 <NavLink to="/jobpost">Post a Job</NavLink>
               </li>
             </>

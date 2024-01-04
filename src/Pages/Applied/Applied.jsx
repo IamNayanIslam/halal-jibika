@@ -7,7 +7,7 @@ const Applied = () => {
   const { appliedJobs, apply } = useContext(FavoriteJobsContext);
   const [appJobs, setAppJobs] = useState(appliedJobs);
 
-  useEffect(() => {
+  /*  useEffect(() => {
     const storedAppJobs = localStorage.getItem("appJobs");
     if (storedAppJobs) {
       setAppJobs(JSON.parse(storedAppJobs));
@@ -16,7 +16,7 @@ const Applied = () => {
 
   useEffect(() => {
     localStorage.setItem("appJobs", JSON.stringify(appJobs));
-  }, [appJobs]);
+  }, [appJobs]); */
 
   return (
     <>

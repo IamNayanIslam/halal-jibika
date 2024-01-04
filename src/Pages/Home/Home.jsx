@@ -21,9 +21,9 @@ function Home() {
               Persist in your hard work, maintain patience, and prepare yourself
               for future opportunities in your career journey.
             </h2>
-            <button>
-              <Link to="/jobs">Explore Now</Link>
-            </button>
+            <Link to="/jobs">
+              <button>Explore Now</button>
+            </Link>
           </div>
           <div className="img">
             <img src="/img/work.png" alt="" />
