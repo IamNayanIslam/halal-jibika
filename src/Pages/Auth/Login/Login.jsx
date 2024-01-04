@@ -11,6 +11,7 @@ import auth from "../../../Firebase/Firebase.config";
 import Home from "../../Home/Home";
 import Loader from "../../../Components/Loader/Loader";
 import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 function Login() {
   const { isDark } = useContext(FavoriteJobsContext);
@@ -31,24 +32,15 @@ function Login() {
     e.preventDefault();
     const emailOrUsername = e.target.emailOrUsername.value;
     const password = e.target.password.value;
-
-    try {
-      await signInWithEmailAndPassword(auth, emailOrUsername, password);
-      navigate("/");
-      Swal.fire({
-        icon: "success",
-        title: "Signed In",
-        showConfirmButton: false,
-        timer: 1000,
+    await signInWithEmailAndPassword(emailOrUsername, password)
+      .then(() => {
+        toast.success("Signed in");
+      })
+      .catch((error) => {
+        console.error("Error signing out:", error.message);
+        toast.error("Error signing out");
       });
-    } catch (error) {
-      console.error("Error signing in:", error.message);
-      Swal.fire({
-        icon: "error",
-        title: "Sign In Failed",
-        text: error.message,
-      });
-    }
+    navigate("/");
   };
 
   if (loading) {
