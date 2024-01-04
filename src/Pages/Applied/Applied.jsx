@@ -4,19 +4,8 @@ import "./Applied.css";
 import { CgClose } from "react-icons/cg";
 
 const Applied = () => {
-  const { appliedJobs, apply } = useContext(FavoriteJobsContext);
+  const { appliedJobs } = useContext(FavoriteJobsContext);
   const [appJobs, setAppJobs] = useState(appliedJobs);
-
-  /*  useEffect(() => {
-    const storedAppJobs = localStorage.getItem("appJobs");
-    if (storedAppJobs) {
-      setAppJobs(JSON.parse(storedAppJobs));
-    }
-  }, [setAppJobs]);
-
-  useEffect(() => {
-    localStorage.setItem("appJobs", JSON.stringify(appJobs));
-  }, [appJobs]); */
 
   return (
     <>
@@ -31,10 +20,6 @@ const Applied = () => {
           {appJobs &&
             appJobs.map((job) => (
               <div className="appliedJob" key={job.id}>
-                <CgClose
-                  className="close-icon"
-                  onClick={(e) => apply(e, job)}
-                />
                 <img src={job.logo} alt="" />
                 <div className="details">
                   <h2>{job.companyName}</h2>
