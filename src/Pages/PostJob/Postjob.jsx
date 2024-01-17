@@ -19,7 +19,10 @@ const Postjob = () => {
   const handleJobPost = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:9000/jobs", postJob);
+      const response = await axios.post(
+        "https://my-json-server.typicode.com/IamNayanIslam/halal-jibika/db",
+        postJob
+      );
       console.log(response.data);
       navigate("/jobs");
     } catch (error) {

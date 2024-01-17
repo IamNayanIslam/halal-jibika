@@ -25,7 +25,9 @@ function Jobs() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get("http://localhost:9000/jobs");
+        const { data } = await axios.get(
+          "https://my-json-server.typicode.com/IamNayanIslam/halal-jibika/db"
+        );
         setJobs(data);
       } catch (error) {
         console.error("Error fetching data:", error.message);
@@ -86,7 +88,9 @@ function Jobs() {
       });
 
       if (result.isConfirmed) {
-        await axios.delete(`http://localhost:9000/jobs/${id}`);
+        await axios.delete(
+          `https://my-json-server.typicode.com/IamNayanIslam/halal-jibika/db/${id}`
+        );
         Swal.fire({
           title: "Deleted!",
           text: "Your Job has been deleted.",
