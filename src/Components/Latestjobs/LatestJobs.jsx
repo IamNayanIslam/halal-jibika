@@ -20,7 +20,9 @@ function LatestJobs() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get("http://localhost:9000/jobs");
+        const { data } = await axios.get(
+          "https://my-json-server.typicode.com/IamNayanIslam/halal-jibika/jobs"
+        );
         setJobs(data);
       } catch (error) {
         console.log(`Error: ${error.message}, Error code: ${error.code}`);
