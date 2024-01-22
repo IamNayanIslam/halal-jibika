@@ -20,7 +20,7 @@ const Postjob = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://my-json-server.typicode.com/IamNayanIslam/halal-jibika/db",
+        "https://my-json-server.typicode.com/IamNayanIslam/halal-jibika/jobs",
         postJob
       );
       console.log(response.data);

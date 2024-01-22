@@ -19,14 +19,14 @@ import auth from "../../Firebase/Firebase.config";
 function Jobs() {
   const [loading, setLoading] = useState(true);
 
-  const { user } = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(
-          "https://my-json-server.typicode.com/IamNayanIslam/halal-jibika/db"
+          "https://my-json-server.typicode.com/IamNayanIslam/halal-jibika/jobs"
         );
         setJobs(data);
       } catch (error) {
@@ -60,14 +60,13 @@ function Jobs() {
 
   const handleJobEdit = (id) => {
     if (!user) {
-      toast.error("Please sign in first!");
       navigate("/login");
-      return;
+      toast.error("Please sign in first!");
+    } else {
+      const jobToEdit = jobs?.find((job) => job.id === id);
+      setJobEdit(jobToEdit);
+      toggleModal();
     }
-    const jobToEdit = jobs?.find((job) => job.id === id);
-    setJobEdit(jobToEdit);
-    console.log(editJob);
-    toggleModal();
   };
 
   const deletePost = async (id) => {
@@ -89,7 +88,7 @@ function Jobs() {
 
       if (result.isConfirmed) {
         await axios.delete(
-          `https://my-json-server.typicode.com/IamNayanIslam/halal-jibika/db/${id}`
+          `https://my-json-server.typicode.com/IamNayanIslam/halal-jibika/jobs/${id}`
         );
         Swal.fire({
           title: "Deleted!",
